@@ -9,7 +9,7 @@ Time Here Now API provides blockchain-verified time services using the NEAR Prot
 **Key Features**:
 - ⏰ Blockchain-verified timestamps from NEAR Protocol
 - 🌍 IANA Time Zone Database (tzdb) integration
-- 🔐 RODiT (Rights Of Data In Transit) token-based authentication
+- 🔐 RODiT (Rich Online Digital Tokens) token-based authentication
 - 📍 IP-based geolocation and timezone detection
 - ⏲️ Delayed webhook scheduling with persistence
 - 🔏 Cryptographic hash signing with blockchain timestamps
@@ -243,7 +243,7 @@ All time endpoints return this standardized response format:
 
 ### What are RODiT Tokens?
 
-RODiT (Rights Of Data In Transit) tokens are NFTs on the NEAR blockchain that represent API access rights for Time Here Now services. They use a novel approach combining Public Key Cryptography (PKC) with blockchain verification:
+RODiT (Rich Online Digital Tokens) tokens are NFTs on the NEAR blockchain that represent API access rights for Time Here Now services. They use a novel approach combining Public Key Cryptography (PKC) with blockchain verification:
 
 - **Ownership verification**: Real-time validation against NEAR Protocol
 - **Embedded credentials**: PKC key pairs stored directly in the token metadata
