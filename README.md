@@ -323,17 +323,6 @@ near contract call-function as-read-only <CONTRACT_ID> nft_token \
 - `metadata`: Contains public/private keys, permissions, expiration
 - `owner_id`: Your NEAR account
 
-#### Step 5: Authenticate with Time Here Now API
-
-1. **Extract credentials**: Get the RODiT token string from metadata
-2. **Login**: Call `/api/login` with your RODiT token
-3. **Receive JWT**: Use the returned JWT for all subsequent API calls
-
-```bash
-curl -X POST https://api.timeherenow.com/api/login \
-  -H "Content-Type: application/json" \
-  -d '{"roditToken": "YOUR_RODIT_TOKEN_STRING"}'
-```
 
 ### Security Best Practices
 
