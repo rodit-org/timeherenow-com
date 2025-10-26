@@ -183,7 +183,7 @@ All time endpoints return this standardized response format:
       "dst_trueorfalse": true,
       "dst_offset": 3600,
       "time_zone": "Europe/Berlin",
-      "unix_time": 175,
+      "unix_time": 175, 
       "utc_datetime": "2025-10-08T08:57:01.123Z",
       "utc_offset": "+02:00",
       "week_number": 41,
@@ -1250,7 +1250,7 @@ The nginx reverse proxy provides:
    - Install dependencies
 
 2. **Pre-Deployment Updates** (automated):
-   - **Time Zone Database Update**: Updates `@vvo/tzdb` to latest IANA tzdb version
+   - **Time Zone Database Update** (optional): Updates `@vvo/tzdb` to latest IANA tzdb version
    - **Permission Map Generation**: Automatically generates `METHOD_PERMISSION_MAP` from `swagger.json`
 
 2. **File Transfer**:
