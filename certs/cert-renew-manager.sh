@@ -1,11 +1,11 @@
 #!/bin/bash
-# Certificate Renewal Manager for discernible.io
+# Certificate Renewal Manager for timeherenow.com
 # This script manages certificate renewal and checks expiry dates
 # Location: /usr/local/bin/cert-renew-manager.sh
 
 set -e
 
-DOMAIN="discernible.io"
+DOMAIN="timeherenow.com"
 LOG_FILE="/var/log/cert-renewal.log"
 
 echo "=== Certificate Renewal Manager ===" | tee -a "$LOG_FILE"

@@ -1,6 +1,6 @@
-# SSL/TLS Certificate Setup for www.discernible.io
+# SSL/TLS Certificate Setup for www.timeherenow.com
 
-This directory contains comprehensive scripts and configurations for setting up and managing SSL/TLS certificates for **discernible.io** using Apache2 and Let's Encrypt.
+This directory contains comprehensive scripts and configurations for setting up and managing SSL/TLS certificates for **timeherenow.com** using Apache2 and Let's Encrypt.
 
 ## 📋 Prerequisites
 
@@ -8,8 +8,8 @@ Before running these scripts, ensure:
 
 1. **DNS Records are configured:**
    ```
-   discernible.io      A    -> your_server_ip
-   www.discernible.io  A    -> your_server_ip
+   timeherenow.com      A    -> your_server_ip
+   www.timeherenow.com  A    -> your_server_ip
    ```
 
 2. **Server requirements:**
@@ -27,7 +27,7 @@ Follow these steps in order to set up SSL certificates:
 chmod +x setup-directories.sh
 ./setup-directories.sh
 ```
-This creates the necessary directory structure at `/var/www/domains/discernible.io/`
+This creates the necessary directory structure at `/var/www/domains/timeherenow.com/`
 
 ### Step 2: Configure Apache
 ```bash
@@ -137,10 +137,10 @@ sudo tail -f /var/log/cert-monitor.log
 sudo tail -f /var/log/cert-backup.log
 
 # Apache error log
-sudo tail -f /var/www/domains/discernible.io/logs/error.log
+sudo tail -f /var/www/domains/timeherenow.com/logs/error.log
 
 # Apache access log
-sudo tail -f /var/www/domains/discernible.io/logs/access.log
+sudo tail -f /var/www/domains/timeherenow.com/logs/access.log
 ```
 
 ### View Cron Jobs
@@ -163,20 +163,20 @@ The setup includes:
 ## 🧪 Testing Your Setup
 
 ### Online Testing Tools
-1. **SSL Labs**: https://www.ssllabs.com/ssltest/analyze.html?d=discernible.io
-2. **Security Headers**: https://securityheaders.com/?q=https://discernible.io
+1. **SSL Labs**: https://www.ssllabs.com/ssltest/analyze.html?d=timeherenow.com
+2. **Security Headers**: https://securityheaders.com/?q=https://timeherenow.com
 3. **Mozilla Observatory**: https://observatory.mozilla.org/
 
 ### Local Testing
 ```bash
 # Test HTTPS connectivity
-curl -I https://discernible.io
+curl -I https://timeherenow.com
 
 # Test HTTP to HTTPS redirect
-curl -I http://discernible.io
+curl -I http://timeherenow.com
 
 # Check certificate details
-openssl s_client -connect discernible.io:443 -servername discernible.io < /dev/null
+openssl s_client -connect timeherenow.com:443 -servername timeherenow.com < /dev/null
 
 # Run comprehensive tests
 ./cert-test.sh
@@ -231,8 +231,8 @@ sudo systemctl status apache2
 sudo apache2ctl configtest
 
 # Check DNS resolution
-dig discernible.io
-dig www.discernible.io
+dig timeherenow.com
+dig www.timeherenow.com
 ```
 
 ### HTTPS Not Working
@@ -244,7 +244,7 @@ sudo netstat -tlnp | grep :443
 sudo apache2ctl -M | grep ssl
 
 # Check certificate files exist
-sudo ls -l /etc/letsencrypt/live/discernible.io/
+sudo ls -l /etc/letsencrypt/live/timeherenow.com/
 ```
 
 ### Renewal Fails
@@ -292,18 +292,18 @@ sudo certbot renew --force-renewal
 
 4. **Review security headers:**
    ```bash
-   curl -I https://discernible.io
+   curl -I https://timeherenow.com
    ```
 
 5. **Keep backups off-site** - Consider copying backups to a remote location
 
 ## 📄 License
 
-These scripts are provided as-is for managing SSL/TLS certificates for discernible.io.
+These scripts are provided as-is for managing SSL/TLS certificates for timeherenow.com.
 
 ---
 
 **Last Updated:** 2025-10-16
-**Domain:** discernible.io, www.discernible.io
+**Domain:** timeherenow.com, www.timeherenow.com
 **Web Server:** Apache2
 **Certificate Authority:** Let's Encrypt

@@ -1,6 +1,6 @@
 # SSL/TLS Certificate Setup - File Index
 
-Complete index of all files in the certificate management system for **www.discernible.io**.
+Complete index of all files in the certificate management system for **www.timeherenow.com**.
 
 ## 📚 Documentation Files (6 files)
 
@@ -39,7 +39,7 @@ Complete index of all files in the certificate management system for **www.disce
 
 | File | Purpose | Location After Setup |
 |------|---------|---------------------|
-| **[apache-virtualhost.conf](apache-virtualhost.conf)** | Apache virtual host config | `/etc/apache2/sites-available/discernible.io.conf` |
+| **[apache-virtualhost.conf](apache-virtualhost.conf)** | Apache virtual host config | `/etc/apache2/sites-available/timeherenow.com.conf` |
 | **[security-headers.conf](security-headers.conf)** | Security headers config | `/etc/apache2/conf-available/security-headers.conf` |
 | **[domains.txt](domains.txt)** | Domain list for certificates | Reference only |
 

@@ -1,4 +1,4 @@
-# Quick Start Guide - SSL/TLS Setup for discernible.io
+# Quick Start Guide - SSL/TLS Setup for timeherenow.com
 
 ## 🚀 One-Command Setup
 
@@ -52,8 +52,8 @@ Test everything is working:
 ## 🌐 Access Your Site
 
 After setup, visit:
-- https://discernible.io
-- https://www.discernible.io
+- https://timeherenow.com
+- https://www.timeherenow.com
 
 ## 📊 Check Certificate Status
 
@@ -80,7 +80,7 @@ sudo tail -f /var/log/cert-monitor.log
 sudo tail -f /var/log/cert-backup.log
 
 # Apache errors
-sudo tail -f /var/www/domains/discernible.io/logs/error.log
+sudo tail -f /var/www/domains/timeherenow.com/logs/error.log
 ```
 
 ## 🆘 Troubleshooting
@@ -94,8 +94,8 @@ sudo systemctl status apache2
 ### Certificate not obtained
 ```bash
 # Check DNS
-dig discernible.io
-dig www.discernible.io
+dig timeherenow.com
+dig www.timeherenow.com
 
 # Check ports
 sudo netstat -tlnp | grep -E ':(80|443)'
@@ -120,9 +120,9 @@ sudo ufw status
 
 | File | Location |
 |------|----------|
-| Website files | `/var/www/domains/discernible.io/public_html/` |
-| Certificates | `/etc/letsencrypt/live/discernible.io/` |
-| Apache config | `/etc/apache2/sites-available/discernible.io.conf` |
+| Website files | `/var/www/domains/timeherenow.com/public_html/` |
+| Certificates | `/etc/letsencrypt/live/timeherenow.com/` |
+| Apache config | `/etc/apache2/sites-available/timeherenow.com.conf` |
 | Security headers | `/etc/apache2/conf-available/security-headers.conf` |
 
 ## 📞 Need Help?

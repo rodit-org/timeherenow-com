@@ -1,10 +1,10 @@
 #!/bin/bash
-# Directory Structure Setup for discernible.io
+# Directory Structure Setup for timeherenow.com
 # This script creates the necessary directory structure for hosting the website
 
 set -e
 
-DOMAIN="discernible.io"
+DOMAIN="timeherenow.com"
 BASE_DIR="/var/www/domains"
 
 echo "=== Setting up directory structure for $DOMAIN ==="

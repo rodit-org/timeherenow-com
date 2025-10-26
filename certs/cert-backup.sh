@@ -1,5 +1,5 @@
 #!/bin/bash
-# Certificate Backup Script for discernible.io
+# Certificate Backup Script for timeherenow.com
 # This script backs up all certificates and Apache configurations
 # Location: /usr/local/bin/cert-backup.sh
 
@@ -8,7 +8,7 @@ set -e
 BACKUP_BASE_DIR="/root/cert-backups"
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 BACKUP_DIR="$BACKUP_BASE_DIR/$TIMESTAMP"
-DOMAIN="discernible.io"
+DOMAIN="timeherenow.com"
 LOG_FILE="/var/log/cert-backup.log"
 
 echo "=== Certificate Backup ===" | tee -a "$LOG_FILE"

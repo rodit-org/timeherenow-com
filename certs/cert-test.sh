@@ -1,11 +1,11 @@
 #!/bin/bash
-# Certificate Testing Script for discernible.io
+# Certificate Testing Script for timeherenow.com
 # This script performs comprehensive SSL/TLS testing
 # Location: /usr/local/bin/cert-test.sh
 
 set -e
 
-DOMAIN="discernible.io"
+DOMAIN="timeherenow.com"
 
 echo "=== Certificate Testing Suite ==="
 echo "Domain: $DOMAIN"

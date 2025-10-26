@@ -1,4 +1,4 @@
-# DNS Configuration Guide for discernible.io
+# DNS Configuration Guide for timeherenow.com
 
 Before running the SSL certificate setup, you **must** configure your DNS records to point to your server.
 
@@ -8,8 +8,8 @@ Configure the following A records in your DNS provider's control panel:
 
 | Type | Name | Value | TTL |
 |------|------|-------|-----|
-| A | discernible.io | `YOUR_SERVER_IP` | 3600 |
-| A | www.discernible.io | `YOUR_SERVER_IP` | 3600 |
+| A | timeherenow.com | `YOUR_SERVER_IP` | 3600 |
+| A | www.timeherenow.com | `YOUR_SERVER_IP` | 3600 |
 
 Replace `YOUR_SERVER_IP` with your actual server's IP address.
 
@@ -53,7 +53,7 @@ dig +short myip.opendns.com @resolver1.opendns.com
 2. Select your domain
 3. DNS tab → Add record
 4. Add A Records:
-   - Name: `discernible.io` → IPv4: `YOUR_SERVER_IP` → Proxy: Off (Orange cloud)
+   - Name: `timeherenow.com` → IPv4: `YOUR_SERVER_IP` → Proxy: Off (Orange cloud)
    - Name: `www` → IPv4: `YOUR_SERVER_IP` → Proxy: Off (Orange cloud)
 
 **Note:** For initial SSL setup, disable Cloudflare proxy (gray cloud). You can enable it after certificates are obtained.
@@ -86,13 +86,13 @@ After configuring DNS, wait for propagation (usually 5-30 minutes, but can take 
 
 ```bash
 # Check root domain
-dig discernible.io +short
+dig timeherenow.com +short
 
 # Check www subdomain
-dig www.discernible.io +short
+dig www.timeherenow.com +short
 
 # Check from multiple locations
-# Visit: https://dnschecker.org/#A/discernible.io
+# Visit: https://dnschecker.org/#A/timeherenow.com
 ```
 
 Both commands should return your server's IP address.
@@ -101,12 +101,12 @@ Both commands should return your server's IP address.
 
 ```bash
 # Using nslookup
-nslookup discernible.io
-nslookup www.discernible.io
+nslookup timeherenow.com
+nslookup www.timeherenow.com
 
 # Using host
-host discernible.io
-host www.discernible.io
+host timeherenow.com
+host www.timeherenow.com
 ```
 
 ## ⏱️ DNS Propagation Time
@@ -149,8 +149,8 @@ host www.discernible.io
 
 Before running the SSL setup scripts, verify:
 
-- [ ] DNS A record for `discernible.io` points to your server IP
-- [ ] DNS A record for `www.discernible.io` points to your server IP
+- [ ] DNS A record for `timeherenow.com` points to your server IP
+- [ ] DNS A record for `www.timeherenow.com` points to your server IP
 - [ ] DNS has propagated (use `dig` or online tools)
 - [ ] Port 80 is open and accessible from the internet
 - [ ] Port 443 is open and accessible from the internet
@@ -163,10 +163,10 @@ Once DNS is configured, test that your server is reachable:
 
 ```bash
 # Test port 80 (HTTP)
-curl -I http://discernible.io
+curl -I http://timeherenow.com
 
 # Test from external tool
-# Visit: https://www.whatsmydns.net/#A/discernible.io
+# Visit: https://www.whatsmydns.net/#A/timeherenow.com
 ```
 
 ## 🎯 Next Steps

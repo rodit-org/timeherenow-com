@@ -1,12 +1,12 @@
 #!/bin/bash
-# Certificate Monitoring Script for discernible.io
+# Certificate Monitoring Script for timeherenow.com
 # This script monitors certificate expiry and sends notifications
 # Location: /usr/local/bin/cert-monitor.sh
 
 set -e
 
-DOMAIN="discernible.io"
-NOTIFICATION_EMAIL="admin@discernible.io"
+DOMAIN="timeherenow.com"
+NOTIFICATION_EMAIL="admin@timeherenow.com"
 WARNING_DAYS=30
 LOG_FILE="/var/log/cert-monitor.log"
 

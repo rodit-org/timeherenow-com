@@ -1,14 +1,14 @@
-# SSL/TLS Certificate Setup Checklist for discernible.io
+# SSL/TLS Certificate Setup Checklist for timeherenow.com
 
 Use this checklist to ensure a smooth SSL certificate setup process.
 
 ## 📋 Pre-Setup Requirements
 
 ### DNS Configuration
-- [ ] DNS A record created for `discernible.io` → server IP
-- [ ] DNS A record created for `www.discernible.io` → server IP
-- [ ] DNS propagation verified with `dig discernible.io`
-- [ ] DNS propagation verified with `dig www.discernible.io`
+- [ ] DNS A record created for `timeherenow.com` → server IP
+- [ ] DNS A record created for `www.timeherenow.com` → server IP
+- [ ] DNS propagation verified with `dig timeherenow.com`
+- [ ] DNS propagation verified with `dig www.timeherenow.com`
 - [ ] Both domains resolve to correct IP address
 
 ### Server Requirements
@@ -32,7 +32,7 @@ Use this checklist to ensure a smooth SSL certificate setup process.
 
 ### Step 1: Directory Structure
 - [ ] Run `./setup-directories.sh`
-- [ ] Verify `/var/www/domains/discernible.io/` exists
+- [ ] Verify `/var/www/domains/timeherenow.com/` exists
 - [ ] Verify correct permissions (755)
 - [ ] Verify correct ownership
 
@@ -49,8 +49,8 @@ Use this checklist to ensure a smooth SSL certificate setup process.
 - [ ] Run `./deploy-website.sh`
 - [ ] Website files copied to document root
 - [ ] Permissions set correctly (www-data:www-data)
-- [ ] Can access http://discernible.io (may show default page)
-- [ ] Can access http://www.discernible.io
+- [ ] Can access http://timeherenow.com (may show default page)
+- [ ] Can access http://www.timeherenow.com
 
 ### Step 4: SSL Certificate Acquisition
 - [ ] Run `./setup-certificates.sh`
@@ -60,8 +60,8 @@ Use this checklist to ensure a smooth SSL certificate setup process.
 - [ ] Certificates obtained for both domains
 - [ ] Apache automatically configured for HTTPS
 - [ ] HTTP to HTTPS redirect enabled
-- [ ] Can access https://discernible.io
-- [ ] Can access https://www.discernible.io
+- [ ] Can access https://timeherenow.com
+- [ ] Can access https://www.timeherenow.com
 - [ ] No SSL certificate warnings in browser
 
 ### Step 5: Security Headers
@@ -127,11 +127,11 @@ Run these commands to verify everything is working:
 sudo apache2ctl configtest
 
 # Test HTTPS connectivity
-curl -I https://discernible.io
-curl -I https://www.discernible.io
+curl -I https://timeherenow.com
+curl -I https://www.timeherenow.com
 
 # Test HTTP to HTTPS redirect
-curl -I http://discernible.io
+curl -I http://timeherenow.com
 
 # View certificate details
 sudo certbot certificates
@@ -147,19 +147,19 @@ sudo crontab -l
 
 # View recent logs
 sudo tail -50 /var/log/cert-renewal.log
-sudo tail -50 /var/www/domains/discernible.io/logs/error.log
+sudo tail -50 /var/www/domains/timeherenow.com/logs/error.log
 ```
 
 ## 🌐 Online Testing Tools
 
 Test your SSL/TLS configuration:
 
-- [ ] SSL Labs: https://www.ssllabs.com/ssltest/analyze.html?d=discernible.io
+- [ ] SSL Labs: https://www.ssllabs.com/ssltest/analyze.html?d=timeherenow.com
   - Target grade: A or A+
-- [ ] Security Headers: https://securityheaders.com/?q=https://discernible.io
+- [ ] Security Headers: https://securityheaders.com/?q=https://timeherenow.com
   - Target grade: A or higher
 - [ ] Mozilla Observatory: https://observatory.mozilla.org/
-- [ ] DNS Checker: https://dnschecker.org/#A/discernible.io
+- [ ] DNS Checker: https://dnschecker.org/#A/timeherenow.com
 
 ## 📊 Monitoring Schedule
 
@@ -194,13 +194,13 @@ Verify these automated tasks are running:
 
 If something goes wrong:
 
-- [ ] Check DNS resolution: `dig discernible.io`
+- [ ] Check DNS resolution: `dig timeherenow.com`
 - [ ] Check Apache status: `sudo systemctl status apache2`
 - [ ] Check Apache config: `sudo apache2ctl configtest`
 - [ ] Check ports: `sudo netstat -tlnp | grep -E ':(80|443)'`
 - [ ] Check firewall: `sudo ufw status`
-- [ ] Check certificate files: `sudo ls -l /etc/letsencrypt/live/discernible.io/`
-- [ ] Check Apache logs: `sudo tail -100 /var/www/domains/discernible.io/logs/error.log`
+- [ ] Check certificate files: `sudo ls -l /etc/letsencrypt/live/timeherenow.com/`
+- [ ] Check Apache logs: `sudo tail -100 /var/www/domains/timeherenow.com/logs/error.log`
 - [ ] Check Certbot logs: `sudo tail -100 /var/log/letsencrypt/letsencrypt.log`
 
 ## 📝 Documentation
@@ -224,7 +224,7 @@ Once all items are checked:
 
 ---
 
-**Congratulations!** Your SSL/TLS certificate setup for discernible.io is complete and production-ready.
+**Congratulations!** Your SSL/TLS certificate setup for timeherenow.com is complete and production-ready.
 
 **Next Steps:**
 1. Monitor logs for the first few days

@@ -2,7 +2,7 @@
 
 ## 📦 Package Contents
 
-This directory contains a complete, production-ready SSL/TLS certificate management system for **www.discernible.io** using Apache2 and Let's Encrypt.
+This directory contains a complete, production-ready SSL/TLS certificate management system for **www.timeherenow.com** using Apache2 and Let's Encrypt.
 
 ### 📄 Documentation (4 files)
 1. **README.md** - Complete documentation with detailed instructions
@@ -86,8 +86,8 @@ cd /home/icarus40/homepage-discernible-io/certs
 Before running the setup:
 
 1. **DNS Configuration**
-   - `discernible.io` A record → your server IP
-   - `www.discernible.io` A record → your server IP
+   - `timeherenow.com` A record → your server IP
+   - `www.timeherenow.com` A record → your server IP
    - DNS propagated (verify with `dig`)
 
 2. **Server Requirements**
@@ -105,7 +105,7 @@ Before running the setup:
 After setup, your server will have:
 
 ```
-/var/www/domains/discernible.io/
+/var/www/domains/timeherenow.com/
 ├── public_html/          # Website files
 │   ├── index.html
 │   ├── styles.css
@@ -115,7 +115,7 @@ After setup, your server will have:
 │   └── error.log
 └── backups/             # Website backups
 
-/etc/letsencrypt/live/discernible.io/
+/etc/letsencrypt/live/timeherenow.com/
 ├── fullchain.pem        # Full certificate chain
 ├── privkey.pem          # Private key
 ├── cert.pem             # Certificate
@@ -123,7 +123,7 @@ After setup, your server will have:
 
 /etc/apache2/
 ├── sites-available/
-│   └── discernible.io.conf    # Virtual host config
+│   └── timeherenow.com.conf    # Virtual host config
 └── conf-available/
     └── security-headers.conf   # Security headers
 
@@ -146,15 +146,15 @@ After setup, your server will have:
 ### Local Testing
 ```bash
 ./cert-test.sh                          # Comprehensive local tests
-curl -I https://discernible.io          # Test HTTPS
-curl -I http://discernible.io           # Test redirect
+curl -I https://timeherenow.com          # Test HTTPS
+curl -I http://timeherenow.com           # Test redirect
 sudo certbot certificates               # View certificates
 sudo certbot renew --dry-run            # Test renewal
 ```
 
 ### Online Testing
-- **SSL Labs**: https://www.ssllabs.com/ssltest/analyze.html?d=discernible.io
-- **Security Headers**: https://securityheaders.com/?q=https://discernible.io
+- **SSL Labs**: https://www.ssllabs.com/ssltest/analyze.html?d=timeherenow.com
+- **Security Headers**: https://securityheaders.com/?q=https://timeherenow.com
 - **Mozilla Observatory**: https://observatory.mozilla.org/
 
 ## 📅 Maintenance Schedule
@@ -196,8 +196,8 @@ sudo tail -f /var/log/cert-monitor.log
 sudo tail -f /var/log/cert-backup.log
 
 # Apache
-sudo tail -f /var/www/domains/discernible.io/logs/error.log
-sudo tail -f /var/www/domains/discernible.io/logs/access.log
+sudo tail -f /var/www/domains/timeherenow.com/logs/error.log
+sudo tail -f /var/www/domains/timeherenow.com/logs/access.log
 ```
 
 ## 🎯 Success Criteria
@@ -218,7 +218,7 @@ Your setup is successful when:
 
 **DNS not resolving**
 ```bash
-dig discernible.io
+dig timeherenow.com
 # Wait for propagation or check DNS configuration
 ```
 
@@ -327,7 +327,7 @@ This is a **complete, production-ready SSL/TLS certificate management system** t
 ---
 
 **Created**: 2025-10-16  
-**Domain**: discernible.io, www.discernible.io  
+**Domain**: timeherenow.com, www.timeherenow.com  
 **Web Server**: Apache2  
 **Certificate Authority**: Let's Encrypt  
 **Automation**: Cron-based  

@@ -7,12 +7,12 @@
 │                    BEFORE YOU START                             │
 ├─────────────────────────────────────────────────────────────────┤
 │  1. Configure DNS Records                                       │
-│     discernible.io → your_server_ip                            │
-│     www.discernible.io → your_server_ip                        │
+│     timeherenow.com → your_server_ip                            │
+│     www.timeherenow.com → your_server_ip                        │
 │                                                                  │
 │  2. Verify DNS Propagation                                      │
-│     dig discernible.io                                          │
-│     dig www.discernible.io                                      │
+│     dig timeherenow.com                                          │
+│     dig www.timeherenow.com                                      │
 │                                                                  │
 │  3. Ensure Ports Open                                           │
 │     Port 80 (HTTP) - for certificate validation                │
@@ -27,7 +27,7 @@
 │  Step 1: Directory Structure                                    │
 │  ┌────────────────────────────────────────────────────────┐   │
 │  │ ./setup-directories.sh                                  │   │
-│  │ Creates: /var/www/domains/discernible.io/             │   │
+│  │ Creates: /var/www/domains/timeherenow.com/             │   │
 │  │          ├── public_html/                              │   │
 │  │          └── logs/                                     │   │
 │  └────────────────────────────────────────────────────────┘   │
@@ -154,7 +154,7 @@ Day 90: Certificate Expires
 ```
 Server File System
 │
-├── /var/www/domains/discernible.io/
+├── /var/www/domains/timeherenow.com/
 │   ├── public_html/
 │   │   ├── index.html
 │   │   ├── styles.css
@@ -166,21 +166,21 @@ Server File System
 │       └── (deployment backups)
 │
 ├── /etc/letsencrypt/
-│   ├── live/discernible.io/
+│   ├── live/timeherenow.com/
 │   │   ├── fullchain.pem    (Certificate + Chain)
 │   │   ├── privkey.pem      (Private Key)
 │   │   ├── cert.pem         (Certificate Only)
 │   │   └── chain.pem        (Chain Only)
 │   ├── renewal/
-│   │   └── discernible.io.conf
+│   │   └── timeherenow.com.conf
 │   └── archive/
-│       └── discernible.io/
+│       └── timeherenow.com/
 │
 ├── /etc/apache2/
 │   ├── sites-available/
-│   │   └── discernible.io.conf
+│   │   └── timeherenow.com.conf
 │   ├── sites-enabled/
-│   │   └── discernible.io.conf → ../sites-available/
+│   │   └── timeherenow.com.conf → ../sites-available/
 │   └── conf-available/
 │       └── security-headers.conf
 │
@@ -243,22 +243,22 @@ Problem Detected
 │
 ├─ Certificate not obtained?
 │  │
-│  ├─ Check DNS: dig discernible.io
+│  ├─ Check DNS: dig timeherenow.com
 │  ├─ Check ports: netstat -tlnp | grep -E ':(80|443)'
 │  ├─ Check Certbot logs: tail -f /var/log/letsencrypt/letsencrypt.log
-│  └─ Try manual: certbot --apache -d discernible.io -d www.discernible.io
+│  └─ Try manual: certbot --apache -d timeherenow.com -d www.timeherenow.com
 │
 ├─ HTTPS not working?
 │  │
 │  ├─ Check certificate: certbot certificates
 │  ├─ Check SSL module: apache2ctl -M | grep ssl
-│  ├─ Check virtual host: cat /etc/apache2/sites-enabled/discernible.io.conf
+│  ├─ Check virtual host: cat /etc/apache2/sites-enabled/timeherenow.com.conf
 │  └─ Check firewall: ufw status
 │
 └─ Renewal failing?
    │
    ├─ Test renewal: certbot renew --dry-run
-   ├─ Check renewal config: cat /etc/letsencrypt/renewal/discernible.io.conf
+   ├─ Check renewal config: cat /etc/letsencrypt/renewal/timeherenow.com.conf
    ├─ Check cron: crontab -l
    └─ Force renewal: certbot renew --force-renewal
 ```
@@ -270,13 +270,13 @@ Problem Detected
 ║              SSL/TLS Certificate Status                      ║
 ╠══════════════════════════════════════════════════════════════╣
 ║                                                               ║
-║  Domain: discernible.io                                      ║
+║  Domain: timeherenow.com                                      ║
 ║  Status: ✓ Active                                            ║
 ║  Expires: 2026-01-14 (90 days remaining)                    ║
 ║  Issuer: Let's Encrypt                                       ║
 ║  Grade: A+                                                   ║
 ║                                                               ║
-║  Domain: www.discernible.io                                  ║
+║  Domain: www.timeherenow.com                                  ║
 ║  Status: ✓ Active                                            ║
 ║  Expires: 2026-01-14 (90 days remaining)                    ║
 ║  Issuer: Let's Encrypt                                       ║

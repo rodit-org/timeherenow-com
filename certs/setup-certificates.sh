@@ -1,11 +1,11 @@
 #!/bin/bash
-# SSL Certificate Setup for discernible.io using Let's Encrypt
+# SSL Certificate Setup for timeherenow.com using Let's Encrypt
 # This script installs Certbot and obtains SSL certificates
 
 set -e
 
-DOMAIN="discernible.io"
-EMAIL="webmaster@discernible.io"
+DOMAIN="timeherenow.com"
+EMAIL="webmaster@timeherenow.com"
 
 echo "=== SSL Certificate Setup for $DOMAIN ==="
 echo ""

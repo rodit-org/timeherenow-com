@@ -1,10 +1,10 @@
 #!/bin/bash
-# Apache Configuration Setup for discernible.io
+# Apache Configuration Setup for timeherenow.com
 # This script configures Apache for the domain
 
 set -e
 
-DOMAIN="discernible.io"
+DOMAIN="timeherenow.com"
 VHOST_FILE="/etc/apache2/sites-available/$DOMAIN.conf"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -56,7 +56,7 @@ echo "✓ Apache configuration completed successfully!"
 echo ""
 echo "Next steps:"
 echo "1. Ensure DNS records point to this server:"
-echo "   - discernible.io -> your_server_ip"
-echo "   - www.discernible.io -> your_server_ip"
+echo "   - timeherenow.com -> your_server_ip"
+echo "   - www.timeherenow.com -> your_server_ip"
 echo "2. Run the certificate setup script to obtain SSL certificates"
 echo "3. Copy your website files to /var/www/domains/$DOMAIN/public_html/"

@@ -1,10 +1,10 @@
 #!/bin/bash
-# Website Deployment Script for discernible.io
+# Website Deployment Script for timeherenow.com
 # This script deploys the website files to the Apache document root
 
 set -e
 
-DOMAIN="discernible.io"
+DOMAIN="timeherenow.com"
 SOURCE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)/public"
 DEST_DIR="/var/www/domains/$DOMAIN/public_html"
 
