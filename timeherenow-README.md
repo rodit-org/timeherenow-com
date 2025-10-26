@@ -1,105 +1,45 @@
-# Time Here Now API Documentation
-
-## Overview
-
-Time Here Now API provides blockchain-verified time services using the NEAR Protocol. All time values are sourced from NEAR blockchain timestamps, not system or NTP time, ensuring tamper-proof and verifiable temporal data.
+#### Quick Reference for Frontend Integration
 
 **Base URL**: `https://api.timeherenow.com`
 
-**Key Features**:
-- ⏰ Blockchain-verified timestamps from NEAR Protocol
-- 🌍 IANA Time Zone Database (tzdb) integration
-- 🔐 RODiT (Rich Online Digital Tokens) token-based mutual authentication
-- 📍 IP-based geolocation and timezone detection
-- ⏲️ Delayed webhook timer scheduling
-- 🔏 Cryptographic hash signing with blockchain timestamps
 
-## Quick Start
+**Available Endpoints**:
 
-### Authentication
+*Public Endpoints (no authentication required):*
+- `POST /api/login` - Authentication.
+- `POST /api/signclient` - Sign client RODiT token
+- `GET /health` - Health check
+- `GET /api-docs` - Interactive API documentation (Swagger UI)
+- `GET /swagger.json` - Raw OpenAPI specification (JSON)
+- `GET /api/mcp/resources` - List available MCP resources (Public for AI discovery)
+- `GET /api/mcp/resource/:uri` - Get specific MCP resource (Public for AI discovery)
+- `GET /api/mcp/schema` - Get MCP OpenAPI schema (Public for AI discovery)
 
-All protected endpoints require a JWT token obtained via RODiT mutual authentication:
+*Protected Endpoints (require authentication only):*
+- `POST /api/logout` - Logout
 
-```bash
-curl -X POST https://api.timeherenow.com/api/login \
-  -H "Content-Type: application/json" \
-  -d '{"roditToken": "YOUR_RODIT_TOKEN"}'
-```
+*Protected Endpoints (require authentication and authorization):*
+- `POST /api/timers/schedule` - Schedule delayed webhook (Client RODiT destination)
+- `POST /api/timezone` - List all IANA timezones
+- `POST /api/timezone/area` - List timezones for a given area
+- `POST /api/timezone/time` - Get current time for a timezone (or by client IP)
+- `POST /api/timezones/by-country` - List timezones by ISO country code
+- `POST /api/ip` - Get current time with location obtained from the IP (IPv4 or IPv6)
+- `POST /api/sign/hash` - Sign a hash with NEAR timestamp
+- `GET /api/metrics` - Get performance metrics (requires permission)
+- `HEAD /api/metrics` - Health probe for metrics endpoint
+- `GET /api/metrics/system` - Get system resource metrics (requires permission)
+- `HEAD /api/metrics/system` - Health probe for system metrics endpoint
+- `POST /api/metrics/reset` - Reset performance metrics (admin only)
+- `GET /api/metrics/debug` - Debug metrics system status (admin only)
+- `GET /api/sessions/list_all` - List all active sessions (admin only)
+- `POST /api/sessions/revoke` - Revoke a specific session (admin only)
+- `POST /api/sessions/cleanup` - Clean up expired sessions (admin only)
 
-**Response**:
-```json
-{
-  "success": true,
-  "message": "Authentication successful",
-  "user": {"id": "user_id"},
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
-}
-```
 
-Use the returned token in subsequent requests:
-```bash
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
-```
+**Authentication**: Protected endpoints require `Authorization: Bearer <JWT_TOKEN>` header obtained from `/api/login`.
 
-### Get Current Time by Timezone
-
-```bash
-curl -X POST https://api.timeherenow.com/api/timezone/time \
-  -H "Authorization: Bearer YOUR_JWT_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{"timezone": "America/New_York", "locale": "en-US"}'
-```
-
-### Get Current Time by IP
-
-```bash
-curl -X POST https://api.timeherenow.com/api/ip \
-  -H "Authorization: Bearer YOUR_JWT_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{"ip": "8.8.8.8", "locale": "en-US"}'
-```
-
-## API Endpoints
-
-### Public Endpoints (No Authentication Required)
-
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/login` | POST | Authenticate with RODiT token and obtain JWT |
-| `/api/signclient` | POST | Sign and mint new RODiT client token |
-| `/health` | GET | Health check with NEAR blockchain status |
-| `/api-docs` | GET | Interactive Swagger UI documentation |
-| `/swagger.json` | GET | Raw OpenAPI 3.0.1 specification |
-| `/api/mcp/resources` | GET | List MCP resources (AI discovery) |
-| `/api/mcp/resource/:uri` | GET | Get specific MCP resource (AI discovery) |
-| `/api/mcp/schema` | GET | MCP OpenAPI schema (AI discovery) |
-
-### Protected Endpoints (Authentication Required)
-
-| Endpoint | Method | Description | Auth Level |
-|----------|--------|-------------|------------|
-| `/api/logout` | POST | Terminate session | Auth only |
-| `/api/timezone` | POST | List all IANA timezones | Auth + Authz |
-| `/api/timezone/area` | POST | List timezones for area | Auth + Authz |
-| `/api/timezone/time` | POST | Get time for timezone | Auth + Authz |
-| `/api/timezones/by-country` | POST | List timezones by country code | Auth + Authz |
-| `/api/ip` | POST | Get time by IP geolocation | Auth + Authz |
-| `/api/sign/hash` | POST | Sign hash with NEAR timestamp | Auth + Authz |
-| `/api/timers/schedule` | POST | Schedule delayed webhook | Auth + Authz |
-| `/api/metrics` | GET | Get performance metrics | Auth + Permission |
-| `/api/metrics/system` | GET | Get system resource metrics | Auth + Permission |
-| `/api/metrics/reset` | POST | Reset metrics counters | Admin only |
-| `/api/metrics/debug` | GET | Debug metrics system | Auth + Authz |
-| `/api/sessions/list_all` | GET | List all active sessions | Admin only |
-| `/api/sessions/revoke` | POST | Revoke specific session | Admin only |
-| `/api/sessions/cleanup` | POST | Clean up expired sessions | Auth + Authz |
-
-## Response Schemas
-
-### DateTimeJsonResponse
-
-All time endpoints return this standardized response format:
-
+**DateTimeJsonResponse**:
 ```json
 {
   "user_ip": "203.0.113.10",
@@ -109,7 +49,7 @@ All time endpoints return this standardized response format:
   "dst_trueorfalse": true,
   "dst_offset": 3600,
   "time_zone": "Europe/Berlin",
-  "unix_time": 1728379021,
+  "unix_time": 175,
   "utc_datetime": "2025-10-08T08:57:01.123Z",
   "utc_offset": "+02:00",
   "week_number": 41,
@@ -118,34 +58,13 @@ All time endpoints return this standardized response format:
   "likely_time_difference_ms": 850
 }
 ```
+Fields in bold are the canonical set used by clients: `user_ip`, `date_time`, `day_of_week`, `day_of_year`, `dst_trueorfalse`, `dst_offset`, `time_zone`, `unix_time`, `utc_datetime`, `utc_offset`, `week_number`.
+`raw_offset` (seconds) and `locale` are also returned for convenience but are not required.
 
-**Field Descriptions**:
+**IANA Time Zone Database (tzdb)**:
+#### Time Endpoints
 
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `user_ip` | string | ✅ | Client IP address (IPv4 or IPv6) |
-| `date_time` | string | ✅ | ISO 8601 local date/time with offset |
-| `day_of_week` | integer | ✅ | ISO 8601 day number (Monday=1, Sunday=7) |
-| `day_of_year` | integer | ✅ | Ordinal date of the year (1-366) |
-| `dst_trueorfalse` | boolean | ✅ | Whether DST is active |
-| `dst_offset` | integer | ✅ | DST offset in seconds |
-| `time_zone` | string | ✅ | IANA tzdb ID (e.g., "Europe/Berlin") |
-| `unix_time` | integer | ✅ | Seconds since Unix epoch |
-| `utc_datetime` | string | ✅ | ISO 8601 UTC date/time |
-| `utc_offset` | string | ✅ | UTC offset (e.g., "+02:00") |
-| `week_number` | integer | ✅ | ISO 8601 week number |
-| `raw_offset` | integer | ⚪ | Base UTC offset in seconds (excluding DST) |
-| `locale` | string | ⚪ | Resolved locale for localization |
-| `likely_time_difference_ms` | integer | ⚪ | Max staleness of blockchain time (ms) |
-
-**Note**: `likely_time_difference_ms` represents the conservative upper-bound difference between real time and the cached NEAR blockchain timestamp. With 5Hz polling (200ms), ~600ms block interval, and 50ms network margin, this is typically 850ms.
-
----
-## Detailed Endpoint Documentation
-
-### Time Endpoints
-
-**Important**: All time values are sourced from NEAR blockchain, not system/NTP time. The API polls NEAR at 5Hz (200ms intervals) and serves cached blockchain timestamps. Returns HTTP 503 if blockchain time is unavailable.
+**Note**: All time endpoints require authentication (`Authorization: Bearer <JWT_TOKEN>` header).
 
 - **POST `/api/timezone`**
   - Response: `string[]` of IANA tzdb IDs, e.g., `"Europe/Berlin"`, `"America/Indiana/Knox"`.
@@ -239,171 +158,92 @@ All time endpoints return this standardized response format:
   - `NEAR_BLOCK_MS` (default `600`): expected block interval in ms
   - `NEAR_NET_MARGIN_MS` (default `50`): network jitter margin in ms
 
-## Getting Started with RODiT Tokens
+#### Getting Started: Purchasing RODiT Tokens
 
-### What are RODiT Tokens?
+**Purchase RODiT tokens for Time Here Now API at: https://purchase.timeherenow.com**
 
-RODiT (Rich Online Digital Tokens) tokens are NFTs on the NEAR blockchain that represent API access rights for Time Here Now services. They use a novel approach combining Public Key Cryptography (PKC) with blockchain verification:
+##### What are RODiT Tokens?
 
-- **Ownership verification**: Real-time validation against NEAR Protocol
-- **Embedded credentials**: PKC key pairs stored directly in the token metadata
-- **Tamper-proof**: Immutable blockchain storage ensures credential integrity
+RODiT (Rights Of Data In Transit) tokens are NFTs on the NEAR blockchain that represent API access rights. Authentication between API clients uses Public Key Cryptography (PKC) with a unique approach: ownership of the RODiTs is verified with the NEAR Protocol in real time, and the PKC key pair used is embedded in the RODiT token itself.
 
-**Learn more**: [Unleashing the Power of Public Key Cryptography with Non-Fungible Tokens](https://vaceituno.medium.com/unleashing-the-power-of-public-key-cryptography-with-non-fungible-tokens-513286d47524)
-
-### RODiT Token Metadata
+Read more: https://vaceituno.medium.com/unleashing-the-power-of-public-key-cryptography-with-non-fungible-tokens-513286d47524
 
 Each RODiT token contains:
+- **Authentication credentials** (public/private key pairs)
+- **API service configuration** (endpoints, permissions, rate limits)
+- **Subscription information** (start date, expiration date)
+- **Network access parameters** (IP ranges, ports, bandwidth limits)
 
-| Component | Description |
-|-----------|-------------|
-| **Authentication Credentials** | Public/private key pairs for API authentication |
-| **Service Configuration** | Permitted endpoints, permission scopes, rate limits |
-| **Subscription Information** | Token validity period (start date, expiration date) |
-| **Network Parameters** | IP ranges, ports, bandwidth limits |
+##### How to Purchase
 
-### Purchase RODiT Tokens
+**Step 1: Get NEAR Tokens**
 
-**Portal**: [https://purchase.timeherenow.com](https://purchase.timeherenow.com)
+Before purchasing RODiT tokens, you need NEAR tokens in your wallet:
 
-### Purchase Process
+- **For Production (Mainnet)**: Purchase NEAR from exchanges like Binance, Coinbase, Kraken, KuCoin, or Gate.io
+- **For Testing (Testnet)**: Get free testnet NEAR from https://near-faucet.io/
+- **Amount needed**: 0.1-1 NEAR is typically sufficient for testing
 
-#### Step 1: Acquire NEAR Tokens
+**Step 2: Access the Purchase Portal**
 
-RODiT tokens are purchased with NEAR cryptocurrency. Obtain NEAR tokens based on your environment:
+1. Navigate to **https://purchase.timeherenow.com**
+2. Connect your NEAR wallet (NEAR Wallet, MyNearWallet, Meteor Wallet, etc.)
+3. Ensure you're on the correct network (testnet or mainnet)
 
-**Production (Mainnet)**:
-- Purchase from exchanges: Binance, Coinbase, Kraken, KuCoin, Gate.io
-- Amount needed: ~0.1-1 NEAR (varies by service tier)
+**Step 3: Configure and Purchase**
 
-**Testing (Testnet)**:
-- Free testnet NEAR: [https://near-faucet.io/](https://near-faucet.io/)
-- Amount needed: 0.1-1 NEAR for testing
+1. Browse available API services and pricing
+2. Select the Time Here Now API service
+3. Choose the number of client RODiTs needed
+4. Review configuration parameters (expiration dates, network settings, bandwidth limits)
+5. Confirm the transaction in your NEAR wallet
+6. Wait for blockchain confirmation (1-2 seconds)
 
-#### Step 2: Connect Your NEAR Wallet
+**Step 4: Retrieve Your RODiT Tokens**
 
-1. Navigate to [https://purchase.timeherenow.com](https://purchase.timeherenow.com)
-2. Connect your NEAR wallet:
-   - NEAR Wallet
-   - MyNearWallet
-   - Meteor Wallet
-   - Sender Wallet
-3. Verify you're on the correct network (mainnet/testnet)
-
-#### Step 3: Configure and Purchase
-
-1. **Browse Services**: View available Time Here Now API tiers and pricing
-2. **Select Service**: Choose the Time Here Now API service
-3. **Configure Access**: 
-   - Number of client RODiTs
-   - Expiration date
-   - Rate limits and bandwidth
-   - Network restrictions (optional)
-4. **Confirm Transaction**: Approve in your NEAR wallet
-5. **Wait for Confirmation**: Blockchain confirmation (1-2 seconds)
-
-#### Step 4: Retrieve RODiT Credentials
-
-After purchase, extract your RODiT token credentials:
+After purchase, your RODiT tokens will appear in your wallet. Extract the credentials for API authentication:
 
 ```bash
-# List all RODiT tokens in your account
+# View your RODiT tokens
 near contract call-function as-read-only <CONTRACT_ID> nft_tokens_for_owner \
   json-args '{"account_id": "<YOUR_ACCOUNT>"}' \
   network-config testnet now
 
-# Get specific RODiT token metadata
+# Get specific RODiT metadata
 near contract call-function as-read-only <CONTRACT_ID> nft_token \
   json-args '{"token_id": "<TOKEN_ID>"}' \
   network-config testnet now
 ```
 
-**Response includes**:
-- `token_id`: Unique identifier
-- `metadata`: Contains public/private keys, permissions, expiration
-- `owner_id`: Your NEAR account
+**Step 5: Use Your RODiT Token**
 
-#### Step 5: Authenticate with Time Here Now API
+- Extract the private key from your RODiT for authentication
+- Configure your API client with the network parameters from the RODiT metadata
+- Use the RODiT token in the `/api/login` endpoint to obtain a session JWT
 
-1. **Extract credentials**: Get the RODiT token string from metadata
-2. **Login**: Call `/api/login` with your RODiT token
-3. **Receive JWT**: Use the returned JWT for all subsequent API calls
+##### Important Security Notes
 
-```bash
-curl -X POST https://api.timeherenow.com/api/login \
-  -H "Content-Type: application/json" \
-  -d '{"roditToken": "YOUR_RODIT_TOKEN_STRING"}'
-```
+- **Never expose private keys** in logs or public repositories
+- **Use environment variables** or secure vaults for credential storage
+- **Monitor expiration dates** and renew RODiT tokens before they expire
+- **Verify RODiT ownership** on-chain before each API session
 
-### Security Best Practices
+##### For AI Agents: Automated Purchase Flow
 
-#### Credential Management
-
-- ❌ **Never expose private keys** in logs, code, or public repositories
-- ✅ **Use environment variables** or secure vaults (HashiCorp Vault, AWS Secrets Manager)
-- ✅ **Rotate credentials** regularly and before expiration
-- ✅ **Monitor expiration dates** to prevent service interruption
-- ✅ **Verify ownership** on-chain before each API session
-
-#### Example: Secure Storage
-
-```bash
-# Store in environment variable
-export RODIT_TOKEN="your_rodit_token_here"
-
-# Use in application
-curl -X POST https://api.timeherenow.com/api/login \
-  -H "Content-Type: application/json" \
-  -d "{\"roditToken\": \"$RODIT_TOKEN\"}"
-```
-
-### Automated Purchase Flow (For AI Agents)
-
-AI agents can programmatically purchase and manage RODiT tokens:
-
-**Prerequisites**:
-1. NEAR wallet with sufficient balance (purchase price + ~0.1 NEAR for gas)
-2. NEAR API or CLI access
-3. Secure credential storage system
-
-**Workflow**:
-
-```bash
-# 1. Check wallet balance
-near state <YOUR_ACCOUNT> --networkId testnet
-
-# 2. Purchase RODiT token (interact with marketplace contract)
-near call <MARKETPLACE_CONTRACT> purchase_rodit \
-  '{"service_id": "timeherenow", "duration_days": 30}' \
-  --accountId <YOUR_ACCOUNT> \
-  --amount 1 \
-  --networkId testnet
-
-# 3. Extract token ID from transaction result
-# Parse transaction receipt for new token_id
-
-# 4. Query token metadata
-near view <CONTRACT_ID> nft_token \
-  '{"token_id": "<NEW_TOKEN_ID>"}' \
-  --networkId testnet
-
-# 5. Store credentials securely
-# Save to secure vault or encrypted configuration
-```
-
-**Integration Tips**:
-- Implement automatic renewal before expiration
-- Monitor token usage and rate limits
-- Log authentication events for audit trails
-- Handle token revocation gracefully
+1. Ensure wallet is funded with sufficient NEAR (purchase price + ~0.1 NEAR for gas)
+2. Use NEAR API or CLI to interact with the RODiT marketplace contract at https://purchase.timeherenow.com
+3. Call the purchase/mint function with required parameters
+4. Parse the transaction result to extract token IDs
+5. Query token metadata to retrieve configuration
+6. Store credentials securely in your configuration management system
 
 ---
 
-### RODiT Wallet Management Script
+#### RODiT Wallet Management Script
 
 The `scripts/roditwallet.sh` script provides a command-line interface for managing NEAR accounts and RODiT tokens. This script simplifies common operations like creating accounts, viewing RODiT tokens, and transferring tokens between accounts.
 
-#### Prerequisites
+##### Prerequisites
 
 - **NEAR CLI**: Install the latest NEAR CLI
   ```bash
@@ -415,7 +255,7 @@ The `scripts/roditwallet.sh` script provides a command-line interface for managi
   export RODITCONTRACTID="your-rodit-contract.near"
   ```
 
-#### Obtaining the Script
+##### Obtaining the Script
 
 The script is located in the repository at `scripts/roditwallet.sh`. Make it executable:
 
@@ -423,7 +263,7 @@ The script is located in the repository at `scripts/roditwallet.sh`. Make it exe
 chmod +x scripts/roditwallet.sh
 ```
 
-#### Usage
+##### Usage
 
 **Get Help**:
 ```bash
@@ -494,7 +334,7 @@ Example:
 ./scripts/roditwallet.sh alice.testnet bob.testnet token_12345
 ```
 
-#### Common Workflows
+##### Common Workflows
 
 **Setting Up a New Test Account**:
 ```bash
@@ -521,14 +361,14 @@ Example:
 ./scripts/roditwallet.sh myaccount.testnet recipient.testnet token_abc123
 ```
 
-#### Script Version
+##### Script Version
 
 The script displays its version on startup:
 ```
 Version 0.93.53 running on testnet at Smart Contract rodit.testnet
 ```
 
-#### Troubleshooting
+##### Troubleshooting
 
 - **"Account does not exist in the blockchain"**: The account needs to be initialized with at least 0.01 NEAR
 - **"There is a lag while collecting information"**: Normal behavior when querying the blockchain
@@ -629,143 +469,59 @@ Sign a base64url-encoded hash concatenated with the latest NEAR timestamp, likel
 - 400: Invalid hash format or length
 - 503: NEAR time unavailable or signing service unavailable
 
----
+#### Timer Endpoint
 
-## Timer Endpoints
+##### POST /api/timers/schedule
+Schedules a delayed webhook to the SDK-configured destination. Returns a ULID immediately; the same `timer_id` is included in the webhook payload when it fires.
 
-### POST /api/timers/schedule
-
-Schedule a delayed webhook that fires after a specified delay. The webhook is sent to the destination configured in your RODiT SDK client.
-
-**Endpoint**: `POST /api/timers/schedule`
-
-**Authentication**: Required (Bearer token)
+**Headers**: `Authorization: Bearer <JWT_TOKEN>`
 
 **Request Body**:
 ```json
-{
-  "delay_seconds": 3600,
-  "payload": {
-    "order_id": "12345",
-    "action": "reminder",
-    "custom_data": "any JSON structure"
-  }
-}
+{ "delay_seconds": 10, "payload": { "any": "json" } }
 ```
 
-**Request Parameters**:
+**Constraints**:
+- `delay_seconds`: Required, must be between 1 and 172800 (48 hours)
+- **Minimum granularity**: 1 second. Sub-second delays are not supported.
 
-| Field | Type | Required | Constraints | Description |
-|-------|------|----------|-------------|-------------|
-| `delay_seconds` | number | ✅ | 1-172800 | Delay in seconds (1 sec to 48 hours) |
-| `payload` | object | ⚪ | Any JSON | Custom data echoed back in webhook |
+**Response (202)**:
+```json
+{ "timer_id": "01JD8X...", "delay_seconds": 10, "scheduled_at": "ISO", "execute_at": "ISO", "requestId": "01JD8X..." }
+```
 
-**Success Response (202 Accepted)**:
+**Webhook Payload (sent by SDK)**:
 ```json
 {
-  "timer_id": "01JD8X9Y2Z3A4B5C6D7E8F9G0H",
-  "delay_seconds": 3600,
-  "scheduled_at": "2025-10-26T10:20:00.000Z",
-  "execute_at": "2025-10-26T11:20:00.000Z",
-  "requestId": "01JD8X9Y2Z3A4B5C6D7E8F9G0H"
+  "timer_id": "01JD8X...",
+  "scheduled_at": "ISO",
+  "execute_at": "ISO",
+  "fired_at": "ISO",
+  "user_id": "string",
+  "session_key": "string",
+  "payload": { "any": "json" }
 }
 ```
 
-**Response Fields**:
+**Blockchain Time Behavior**:
+- All timestamps (`scheduled_at`, `execute_at`, `fired_at`) use **NEAR blockchain time** as the exclusive time source
+- NEAR blockchain produces blocks at ~500-600ms intervals; timestamps advance in discrete steps, not continuously
+- `fired_at` is guaranteed to be >= `execute_at` to maintain temporal consistency
+- Due to blockchain time granularity and caching, `fired_at` may equal `execute_at` even when actual delivery occurs later
+- For applications requiring sub-second precision, consider the inherent ~600ms granularity of blockchain time
 
-| Field | Description |
-|-------|-------------|
-| `timer_id` | ULID identifying the scheduled timer |
-| `delay_seconds` | Confirmed delay in seconds |
-| `scheduled_at` | NEAR blockchain time when scheduled |
-| `execute_at` | NEAR blockchain time when webhook will fire |
-| `requestId` | Server request correlation ID |
+#### MCP (Model Context Protocol) Endpoints
 
-**Webhook Payload (Delivered to SDK Destination)**:
+##### GET /api/mcp/resources
+List available MCP resources for AI model access.
 
-When the timer fires, this payload is sent to your configured webhook URL:
-
-```json
-{
-  "timer_id": "01JD8X9Y2Z3A4B5C6D7E8F9G0H",
-  "scheduled_at": "2025-10-26T10:20:00.000Z",
-  "execute_at": "2025-10-26T11:20:00.000Z",
-  "fired_at": "2025-10-26T11:20:00.600Z",
-  "user_id": "user_near_account_id",
-  "session_key": "session_identifier",
-  "payload": {
-    "order_id": "12345",
-    "action": "reminder",
-    "custom_data": "any JSON structure"
-  }
-}
-```
-
-**Error Responses**:
-- `400 Bad Request`: Invalid delay_seconds (must be 1-172800)
-- `401 Unauthorized`: Invalid or expired JWT token
-- `503 Service Unavailable`: NEAR blockchain time unavailable
-
-**Example**:
-```bash
-# Schedule a webhook to fire in 1 hour
-curl -X POST https://api.timeherenow.com/api/timers/schedule \
-  -H "Authorization: Bearer YOUR_JWT_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "delay_seconds": 3600,
-    "payload": {
-      "order_id": "12345",
-      "action": "payment_reminder"
-    }
-  }'
-```
-
-### Blockchain Time Behavior
-
-**Time Source**: All timestamps use **NEAR blockchain time** exclusively (not system/NTP time).
-
-**Key Characteristics**:
-- **Discrete timestamps**: NEAR blocks are produced at ~500-600ms intervals; timestamps advance in steps
-- **Temporal consistency**: `fired_at` is guaranteed to be >= `execute_at`
-- **Granularity**: Minimum 1 second delay; sub-second delays not supported
-- **Accuracy**: Due to blockchain time granularity and caching, `fired_at` may equal `execute_at` even when actual delivery occurs later
-
-**Persistence**:
-- Timers are automatically saved to disk every hour
-- Timers survive server restarts
-- Expired timers are **never fired late** - they are skipped on restore
-- Maximum data loss window: 1 hour between auto-saves
-
-**Use Cases**:
-- Payment reminders
-- Session timeouts
-- Scheduled notifications
-- Delayed task execution
-- Time-based workflow triggers
-
----
-
-## MCP (Model Context Protocol) Endpoints
-
-The MCP endpoints provide AI models and agents with structured access to API documentation and resources.
-
-### GET /api/mcp/resources
-
-List all available MCP resources for AI model discovery and access.
-
-**Endpoint**: `GET /api/mcp/resources`
-
-**Authentication**: None (public for AI discovery)
+**Headers**: `Authorization: Bearer <JWT_TOKEN>`
 
 **Query Parameters**:
+- `limit` (optional): Maximum number of resources to return
+- `cursor` (optional): Pagination cursor
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| `limit` | integer | ⚪ | Maximum number of resources to return |
-| `cursor` | string | ⚪ | Pagination cursor for next page |
-
-**Success Response (200)**:
+**Response (200)**:
 ```json
 {
   "resources": [
@@ -796,111 +552,41 @@ List all available MCP resources for AI model discovery and access.
     }
   ],
   "nextCursor": null,
-  "requestId": "01JD8X9Y2Z3A4B5C6D7E8F9G0H"
+  "requestId": "01JD8X..."
 }
 ```
 
-**Available Resources**:
+##### GET /api/mcp/resource/:uri
+Get a specific MCP resource by URI.
 
-| URI | Name | Type | Description |
-|-----|------|------|-------------|
-| `openapi:swagger` | OpenAPI Schema | JSON | Complete API specification |
-| `config:default` | Server Config | JSON | Default configuration |
-| `readme:main` | README | Markdown | Full documentation |
-| `health:status` | Health Status | JSON | Server and NEAR status |
-| `guide:api` | API Guide | JSON | Comprehensive usage guide |
-
-**Example**:
-```bash
-curl https://api.timeherenow.com/api/mcp/resources
-```
-
----
-
-### GET /api/mcp/resource/:uri
-
-Retrieve a specific MCP resource by its URI.
-
-**Endpoint**: `GET /api/mcp/resource/:uri`
-
-**Authentication**: None (public for AI discovery)
+**Headers**: `Authorization: Bearer <JWT_TOKEN>`
 
 **Path Parameters**:
+- `uri`: Resource URI (e.g., `openapi:swagger`, `config:default`, `readme:main`, `health:status`, `guide:api`)
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| `uri` | string | ✅ | Resource URI (e.g., `openapi:swagger`) |
-
-**Success Response (200)**:
+**Response (200)**:
 ```json
 {
   "type": "application/json",
-  "content": {
-    "openapi": "3.0.1",
-    "info": {
-      "title": "Time Here Now API",
-      "version": "20251023"
-    },
-    "paths": { ... }
-  },
-  "requestId": "01JD8X9Y2Z3A4B5C6D7E8F9G0H"
+  "content": { ... },
+  "requestId": "01JD8X..."
 }
 ```
 
-**Error Responses**:
-- `404 Not Found`: Resource URI does not exist
-- `500 Internal Server Error`: Failed to retrieve resource
+##### GET /api/mcp/schema
+Get the OpenAPI schema for the MCP interface.
 
-**Example**:
-```bash
-# Get OpenAPI schema
-curl https://api.timeherenow.com/api/mcp/resource/openapi:swagger
+**Headers**: `Authorization: Bearer <JWT_TOKEN>`
 
-# Get README documentation
-curl https://api.timeherenow.com/api/mcp/resource/readme:main
-
-# Get health status
-curl https://api.timeherenow.com/api/mcp/resource/health:status
-```
-
----
-
-### GET /api/mcp/schema
-
-Get the OpenAPI schema for the MCP interface itself.
-
-**Endpoint**: `GET /api/mcp/schema`
-
-**Authentication**: None (public for AI discovery)
-
-**Success Response (200)**:
+**Response (200)**:
 ```json
 {
   "openapi": "3.0.1",
-  "info": {
-    "title": "Time Here Now MCP Interface",
-    "version": "1.0.0"
-  },
-  "paths": {
-    "/api/mcp/resources": { ... },
-    "/api/mcp/resource/{uri}": { ... },
-    "/api/mcp/schema": { ... }
-  },
-  "requestId": "01JD8X9Y2Z3A4B5C6D7E8F9G0H"
+  "info": { ... },
+  "paths": { ... },
+  "requestId": "01JD8X..."
 }
 ```
-
-**Example**:
-```bash
-curl https://api.timeherenow.com/api/mcp/schema
-```
-
-**Use Cases**:
-- AI agent API discovery
-- Automated documentation retrieval
-- Dynamic API client generation
-- Integration testing
-- API monitoring and health checks
 
 #### Metrics Endpoints
 
@@ -1117,18 +803,14 @@ Raw OpenAPI 3.0.1 specification in JSON format for programmatic access and tooli
 }
 ```
 
----
+The `token_id` fields contain unique identifiers generated by the facial combination generator.
 
-## Complete API Specification
+### API Documentation
+Complete OpenAPI 3.0.1 specification available at: `api-docs/swagger.json`
 
-The complete OpenAPI 3.0.1 specification is available at:
-- **File**: `api-docs/swagger.json`
-- **Live Documentation**: `https://timeherenow.rodit.org/api-docs/`
-- **Interactive Swagger UI**: `https://api.timeherenow.com/api-docs`
+**Live Documentation**: Available at `https://timeherenow.rodit.org/api-docs/`
 
----
-
-## Configuration and Deployment
+## 6. Configuration and Deployment
 
 ### Configuration Files
 
