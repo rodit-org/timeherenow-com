@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Time Here Now API — Blockchain-verified time services using NEAR Protocol with RODiT authentication">
+    <title>Time Here Now API Documentation</title>
+    <link rel="stylesheet" href="docs-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav class="navbar">
+                <div class="logo">
+                    <h1 style="margin: 0; font-size: 1.5rem;">⏰ Time Here Now</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#endpoints">API Endpoints</a></li>
+                    <li><a href="#authentication">Authentication</a></li>
+                    <li><a href="#getting-started">Get Started</a></li>
+                    <li><a href="README.md">Full Docs</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="hero-content">
+                    <h2 class="hero-title">Blockchain-Verified Time Services</h2>
+                    <p class="hero-subtitle">Time Here Now API provides tamper-proof temporal data using NEAR Protocol blockchain timestamps. All time values are sourced from NEAR blockchain, not system or NTP time.</p>
+                    <div class="cta-buttons">
+                        <a class="btn btn-primary" href="#getting-started">Get Started</a>
+                        <a class="btn btn-secondary" href="https://api.timeherenow.com/api-docs" target="_blank" rel="noopener">API Docs</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="placeholder-graphic">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="100" cy="100" r="80" fill="#FF4500" opacity="0.2"/>
+                            <circle cx="100" cy="100" r="60" fill="#000000" opacity="0.3"/>
+                            <circle cx="100" cy="100" r="40" fill="#FF6B35" opacity="0.4"/>
+                            <text x="100" y="110" text-anchor="middle" font-size="48" fill="#FF4500" font-weight="bold">⏰</text>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+
+            <section id="features" class="features">
+                <h2 class="section-title">Key Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">⏰</div>
+                        <h3>Blockchain Timestamps</h3>
+                        <p>All time values sourced from NEAR Protocol blockchain, ensuring tamper-proof and verifiable temporal data.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌍</div>
+                        <h3>IANA Time Zones</h3>
+                        <p>Full integration with IANA Time Zone Database (tzdb) for accurate timezone conversions worldwide.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔐</div>
+                        <h3>RODiT Authentication</h3>
+                        <p>Token-based mutual authentication using Rich Online Digital Tokens for secure API access.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📍</div>
+                        <h3>IP Geolocation</h3>
+                        <p>Automatic timezone detection based on IP address geolocation for seamless user experience.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⏲️</div>
+                        <h3>Delayed Webhooks</h3>
+                        <p>Schedule webhooks up to 48 hours in advance with blockchain-verified timing guarantees.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔏</div>
+                        <h3>Cryptographic Signing</h3>
+                        <p>Sign hashes with blockchain timestamps for verifiable proof of existence at a specific time.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="endpoints" class="about">
+                <div class="about-content">
+                    <h2 class="section-title">API Endpoints</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <h3>🕐 Time Endpoints</h3>
+                            <p><code>POST /api/timezone/time</code> — Get time for any timezone<br>
+                            <code>POST /api/ip</code> — Get time by IP geolocation<br>
+                            <code>POST /api/timezone</code> — List all IANA timezones</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>🔏 Signing Endpoints</h3>
+                            <p><code>POST /api/sign/hash</code> — Sign hash with NEAR timestamp<br>
+                            <code>POST /api/signclient</code> — Mint new RODiT client token</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>⏲️ Timer Endpoints</h3>
+                            <p><code>POST /api/timers/schedule</code> — Schedule delayed webhook<br>
+                            Maximum delay: 48 hours<br>
+                            Blockchain-verified execution time</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>🔐 Auth Endpoints</h3>
+                            <p><code>POST /api/login</code> — Authenticate with RODiT<br>
+                            <code>POST /api/logout</code> — Terminate session<br>
+                            Continuous mutual authentication</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="authentication" class="features">
+                <h2 class="section-title">Authentication with RODiT SDK</h2>
+                <div class="code-example">
+                    <h3>Initialize the SDK</h3>
+                    <pre><code>const { RoditClient } = require('@rodit/rodit-auth-be');
+
+// Initialize the SDK client
+const roditClient = await RoditClient.create('client');
+
+// Share across modules via app.locals
+app.locals.roditClient = roditClient;
+
+// Authenticate with the server
+const loginResult = await roditClient.login_server();
+
+if (loginResult.jwt_token) {
+  console.log('✓ Authentication successful');
+}</code></pre>
+                    <p class="note"><strong>⚠️ Important:</strong> Direct curl requests will not work. You must use the <code>@rodit/rodit-auth-be</code> SDK to maintain transparent continuous mutual authentication.</p>
+                </div>
+            </section>
+
+            <section id="getting-started" class="about">
+                <div class="about-content">
+                    <h2 class="section-title">Getting Started</h2>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <h3>Acquire NEAR Tokens</h3>
+                            <p>Get NEAR tokens from exchanges (mainnet) or <a href="https://near-faucet.io/" target="_blank">near-faucet.io</a> (testnet)</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <h3>Create Implicit Account</h3>
+                            <p>Use <code>near-cli-rs</code> or <code>roditwallet.sh</code> to generate an implicit NEAR account</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <h3>Purchase RODiT Token</h3>
+                            <p>Visit <a href="https://purchase.timeherenow.com" target="_blank">purchase.timeherenow.com</a> to buy your API access token</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <h3>Install & Configure SDK</h3>
+                            <p>Install <code>@rodit/rodit-auth-be</code> and configure with your implicit account credentials</p>
+                        </div>
+                    </div>
+                    <div class="cta-buttons" style="margin-top: 2rem;">
+                        <a class="btn btn-primary" href="README.md">Read Full Documentation</a>
+                        <a class="btn btn-secondary" href="https://api.timeherenow.com/api-docs" target="_blank">Interactive API Docs</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="contact">
+                <h2 class="section-title">Resources</h2>
+                <p class="about-text" style="text-align: center; margin-bottom: 1.5rem;">
+                    <a href="https://api.timeherenow.com/api-docs" target="_blank">Interactive API Docs</a> • 
+                    <a href="README.md">Full Documentation</a> • 
+                    <a href="https://api.timeherenow.com/swagger.json" target="_blank">OpenAPI Spec</a> • 
+                    <a href="example/README.md">SDK Examples</a>
+                </p>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <p>&copy; 2025 Time Here Now API. Powered by NEAR Protocol & RODiT.</p>
+                <div class="footer-links">
+                    <a href="https://api.timeherenow.com" target="_blank">API</a>
+                    <a href="README.md">Documentation</a>
+                    <a href="https://purchase.timeherenow.com" target="_blank">Purchase</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
