@@ -4,7 +4,7 @@
 
 Run everything automatically:
 ```bash
-cd /home/icarus40/homepage-discernible-io/certs
+cd /home/icarus40/homepage-timeherenow-com/certs
 ./setup-all.sh
 ```
 

@@ -37,7 +37,7 @@ This directory contains a complete, production-ready SSL/TLS certificate managem
 
 ### Option 1: Automatic Setup (Recommended)
 ```bash
-cd /home/icarus40/homepage-discernible-io/certs
+cd /home/icarus40/homepage-timeherenow-com/certs
 ./setup-all.sh
 ```
 
