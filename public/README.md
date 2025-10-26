@@ -2,7 +2,7 @@
 
 ## Overview
 
-Time Here Now API provides blockchain-verified time services using the NEAR Protocol. All time values are sourced from NEAR blockchain timestamps, not system or NTP time, ensuring tamper-proof and verifiable temporal data.
+Time Here Now API provides blockchain-verified time services using the NEAR Protocol. All time values are sourced from NEAR blockchain timestamps, not system or NTP time, ensuring tamper-proof and verifiable temporal data
 
 **Base URL**: `https://api.timeherenow.com`
 
