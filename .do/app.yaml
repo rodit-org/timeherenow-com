@@ -1,0 +1,13 @@
+name: homepage-discernible-io
+region: nyc
+
+static_sites:
+  - name: homepage
+    github:
+      branch: main
+      deploy_on_push: true
+    source_dir: /public
+    output_dir: /public
+    catchall_document: index.html
+    routes:
+      - path: /

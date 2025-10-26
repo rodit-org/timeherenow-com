@@ -1,0 +1,61 @@
+# Security Headers
+<IfModule mod_headers.c>
+    # Prevent clickjacking
+    Header always set X-Frame-Options "SAMEORIGIN"
+    
+    # Prevent MIME type sniffing
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # Referrer Policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Content Security Policy (adjust as needed)
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'self';"
+</IfModule>
+
+# Disable caching for development
+# Remove or comment out these lines when going to production
+
+<IfModule mod_headers.c>
+    # Disable caching for HTML files
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </FilesMatch>
+    
+    # Disable caching for CSS and JavaScript files
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </FilesMatch>
+</IfModule>
+
+# Enable ETag for better cache validation
+FileETag MTime Size
+
+# For production, use this instead (uncomment and remove above):
+# <IfModule mod_headers.c>
+#     <FilesMatch "\.(html|htm)$">
+#         Header set Cache-Control "public, max-age=3600, must-revalidate"
+#     </FilesMatch>
+#     
+#     <FilesMatch "\.(css|js)$">
+#         Header set Cache-Control "public, max-age=2592000, must-revalidate"
+#     </FilesMatch>
+#     
+#     <FilesMatch "\.(jpg|jpeg|png|gif|svg|webp|ico)$">
+#         Header set Cache-Control "public, max-age=31536000, immutable"
+#     </FilesMatch>
+# </IfModule>
+
+# Protect sensitive files (but allow .nojekyll for GitHub Pages)
+<FilesMatch "^\.((?!nojekyll).)*$">
+    Require all denied
+</FilesMatch>
+
+# Prevent access to backup and config files
+<FilesMatch "\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist)$">
+    Require all denied
+</FilesMatch>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="discernible.io — RODiT: Rich Online Digital Tokens. Unify authentication, configuration, and licensing for APIs and online services.">
+    <title>discernible.io — RODiT: Rich Online Digital Tokens</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="logo.png" alt="discernible.io">
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how">How it works</a></li>
+                    <li><a href="#use-cases">Use cases</a></li>
+                    <li><a href="#developers">Developers</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="hero-content">
+                    <h2 class="hero-title">RODiT — Rich Online Digital Tokens</h2>
+                    <p class="hero-subtitle">Unify authentication, configuration, and licensing in a single token. Stateless mutual authentication, local keys, and flexible subscriptions — built on blockchain.</p>
+                    <div class="cta-buttons">
+                        <a class="btn btn-primary" href="#features">Explore Features</a>
+                        <a class="btn btn-secondary" href="https://dev.to/discernible-io/rich-online-digital-tokens-whitepaper-1gpg" target="_blank" rel="noopener">Read Whitepaper</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="placeholder-graphic">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="100" cy="100" r="80" fill="#FF4500" opacity="0.2"/>
+                            <circle cx="100" cy="100" r="60" fill="#000000" opacity="0.3"/>
+                            <circle cx="100" cy="100" r="40" fill="#FF6B35" opacity="0.4"/>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+
+            <section id="features" class="features">
+                <h2 class="section-title">RODiT Key Capabilities</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🧩</div>
+                        <h3>Unified credential</h3>
+                        <p>Authentication, configuration, and licensing converge in one token—no user DB required.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔐</div>
+                        <h3>Mutual authentication</h3>
+                        <p>Default mutual auth for clients, servers, and webhooks. Strong MiTM resistance.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚙️</div>
+                        <h3>Stateless enforcement</h3>
+                        <p>Permissions, rate limits, and geofencing enforced without maintaining backend sessions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔑</div>
+                        <h3>Local keys & rotation</h3>
+                        <p>Keys generated on endpoints. Rotate asynchronously—decoupled from license expiration.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">✅</div>
+                        <h3>Verifiable trust</h3>
+                        <p>DNS-based issuer authorization prevents rogue issuance and enforces trust boundaries.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛍️</div>
+                        <h3>Commerce-ready</h3>
+                        <p>Resell, swap, and white‑label subscriptions. Flexible pricing and distribution models.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="how" class="about">
+                <div class="about-content">
+                    <h2 class="section-title">How RODiT works</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">1️⃣</div>
+                            <h3>Issue & deliver</h3>
+                            <p>Endpoints generate keys locally. On purchase, a RODiT is minted and sent to the endpoint’s blockchain address—no CSRs or file transfers.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">2️⃣</div>
+                            <h3>Mutual authentication</h3>
+                            <p>Peers verify Live/Revoked, Genuine, Possession, Issuer trust (DNS), and Active/Expired before exchanging data.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">3️⃣</div>
+                            <h3>Rotate keys anytime</h3>
+                            <p>Move the RODiT to a new address to rotate keys independently of license expiration—no coordination required.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="use-cases" class="features">
+                <h2 class="section-title">Use cases</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔌</div>
+                        <h3>API authentication & metering</h3>
+                        <p>Stateless subscriptions, permissions, rate limits and geolocation—webhooks included.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>VPN & secure networking</h3>
+                        <p>Reference implementation via Cableguard demonstrates RODiT‑based mutual authentication.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📦</div>
+                        <h3>IoT & device provisioning</h3>
+                        <p>Deliver credentials remotely; endpoints self‑configure from the token.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🏦</div>
+                        <h3>Finance & healthcare APIs</h3>
+                        <p>Stronger auth for regulated environments and sensitive data flows.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">☁️</div>
+                        <h3>Cloud services</h3>
+                        <p>Authenticate access to storage, compute and internal APIs without a user database.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💬</div>
+                        <h3>Messaging & P2P</h3>
+                        <p>Peer‑to‑peer verification for secure communications.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="developers" class="about">
+                <div class="about-content">
+                    <h2 class="section-title">Developers</h2>
+                    <p class="about-text">
+                        Read the whitepaper and the API announcement to get started. Follow updates on X or reach out to join the beta.
+                    </p>
+                    <div class="cta-buttons">
+                        <a class="btn btn-primary" href="https://dev.to/discernible-io/rich-online-digital-tokens-whitepaper-1gpg" target="_blank" rel="noopener">Whitepaper</a>
+                        <a class="btn btn-secondary" href="https://dev.to/discernible-io/announcing-rodit-api-revolutionizing-api-authentication-3h3o" target="_blank" rel="noopener">API Announcement</a>
+                    </div>
+                    <div class="cta-buttons" style="margin-top: 1rem;">
+                        <a class="btn btn-primary" href="mailto:sales@discernible.io?subject=RODiT%20Beta">Join the Beta</a>
+                        <a class="btn btn-secondary" href="https://x.com/Dscernble" target="_blank" rel="noopener">Follow on X</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="contact">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="about-text" style="text-align: center; margin-bottom: 1.5rem;">
+                    <a href="mailto:support@discernible.io">support@discernible.io</a> • 
+                    <a href="mailto:sales@discernible.io">sales@discernible.io</a> • 
+                    <a href="mailto:iwantin@discernible.io">iwantin@discernible.io</a>
+                </p>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <p>&copy; 2025 discernible.io. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="https://x.com/Dscernble" target="_blank" rel="noopener">X</a>
+                    <a href="https://dev.to/discernible-io/rich-online-digital-tokens-whitepaper-1gpg" target="_blank" rel="noopener">Whitepaper</a>
+                    <a href="mailto:support@discernible.io">Support</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
