@@ -18,12 +18,29 @@ Time Here Now API provides blockchain-verified time services using the NEAR Prot
 
 ### Authentication
 
-All protected endpoints require a JWT token obtained via RODiT mutual authentication:
+All protected endpoints require a JWT token obtained via RODiT mutual authentication.
+
+**Important**: Direct curl requests will not work. You must use the `@rodit/rodit-auth-be` SDK to maintain transparent continuous mutual authentication.
+
+**Resources**:
+- 📦 **NPM Package**: [https://www.npmjs.com/package/@rodit/rodit-auth-be](https://www.npmjs.com/package/@rodit/rodit-auth-be)
+- 💻 **Sample Client**: [https://github.com/rodit-org/timeherenow-test](https://github.com/rodit-org/timeherenow-test)
 
 ```bash
-curl -X POST https://api.timeherenow.com/api/login \
-  -H "Content-Type: application/json" \
-  -d '{"roditToken": "YOUR_RODIT_TOKEN"}'
+# Install the SDK
+npm install @rodit/rodit-auth-be
+```
+
+```javascript
+// Initialize and authenticate
+const { RoditClient } = require('@rodit/rodit-auth-be');
+
+const roditClient = await RoditClient.create('client');
+const loginResult = await roditClient.login_server();
+
+if (loginResult.jwt_token) {
+  console.log('✓ Authentication successful');
+}
 ```
 
 **Response**:
@@ -251,6 +268,11 @@ RODiT (Rich Online Digital Tokens) tokens are NFTs on the NEAR blockchain that r
 
 **Learn more**: [Unleashing the Power of Public Key Cryptography with Non-Fungible Tokens](https://vaceituno.medium.com/unleashing-the-power-of-public-key-cryptography-with-non-fungible-tokens-513286d47524)
 
+**Developer Resources**:
+- 📦 **NPM Package**: [https://www.npmjs.com/package/@rodit/rodit-auth-be](https://www.npmjs.com/package/@rodit/rodit-auth-be)
+- 💻 **Sample Client API**: [https://github.com/rodit-org/timeherenow-test](https://github.com/rodit-org/timeherenow-test)
+- 🛒 **Purchase Portal**: [https://purchase.timeherenow.com/#](https://purchase.timeherenow.com/#)
+
 ### RODiT Token Metadata
 
 Each RODiT token contains:
@@ -264,13 +286,15 @@ Each RODiT token contains:
 
 ### Purchase RODiT Tokens
 
-**Portal**: [https://purchase.timeherenow.com](https://purchase.timeherenow.com)
+**Portal**: [https://purchase.timeherenow.com/#](https://purchase.timeherenow.com/#)
 
 ### Purchase Process
 
 #### Step 1: Acquire NEAR Tokens
 
-RODiT tokens are purchased with NEAR cryptocurrency. Obtain NEAR tokens based on your environment:
+RODiT tokens are purchased with NEAR cryptocurrency. Visit the [purchase portal](https://purchase.timeherenow.com/#) to get started.
+
+Obtain NEAR tokens based on your environment:
 
 **Production (Mainnet)**:
 - Purchase from exchanges: Binance, Coinbase, Kraken, KuCoin, Gate.io
@@ -282,7 +306,7 @@ RODiT tokens are purchased with NEAR cryptocurrency. Obtain NEAR tokens based on
 
 #### Step 2: Connect Your NEAR Wallet
 
-1. Navigate to [https://purchase.timeherenow.com](https://purchase.timeherenow.com)
+1. Navigate to [https://purchase.timeherenow.com/#](https://purchase.timeherenow.com/#)
 2. Connect your NEAR wallet:
    - NEAR Wallet
    - MyNearWallet
