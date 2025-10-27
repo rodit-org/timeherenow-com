@@ -11,7 +11,7 @@ Time Here Now API provides blockchain-verified time services using the NEAR Prot
 - 🌍 IANA Time Zone Database (tzdb) integration
 - 🔐 RODiT (Rich Online Digital Tokens) token-based mutual authentication
 - 📍 IP-based geolocation and timezone detection
-- ⏲️ Delayed webhook timer scheduling
+- ⏲️ Scheduled events via webhooks
 - 🔏 Cryptographic hash signing with blockchain timestamps
 
 ## Quick Start
@@ -85,7 +85,7 @@ curl -X POST https://api.timeherenow.com/api/ip \
 | `/api/timezones/by-country` | POST | List timezones by country code | Auth + Authz |
 | `/api/ip` | POST | Get time by IP geolocation | Auth + Authz |
 | `/api/sign/hash` | POST | Sign hash with NEAR timestamp | Auth + Authz |
-| `/api/timers/schedule` | POST | Schedule delayed webhook | Auth + Authz |
+| `/api/timers/schedule` | POST | Schedule event via webhook | Auth + Authz |
 | `/api/metrics` | GET | Get performance metrics | Auth + Permission |
 | `/api/metrics/system` | GET | Get system resource metrics | Auth + Permission |
 | `/api/metrics/reset` | POST | Reset metrics counters | Admin only |
@@ -624,7 +624,7 @@ Sign a base64url-encoded hash concatenated with the latest NEAR timestamp, likel
 
 ### POST /api/timers/schedule
 
-Schedule a delayed webhook that fires after a specified delay. The webhook is sent to the destination configured in your RODiT SDK client.
+Schedule an event via webhook that fires after a specified delay. The webhook is sent to the destination configured in your RODiT SDK client.
 
 **Endpoint**: `POST /api/timers/schedule`
 
@@ -1282,7 +1282,7 @@ The nginx reverse proxy provides:
 
 ## 7. Timer Persistence
 
-The API supports scheduling delayed webhooks with a maximum delay of **48 hours (172800 seconds)**. Timers survive server restarts through automatic persistence.
+The API supports scheduling events via webhooks with a maximum delay of **48 hours (172800 seconds)**. Timers survive server restarts through automatic persistence.
 
 ### How It Works
 
