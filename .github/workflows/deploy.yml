@@ -34,7 +34,7 @@ jobs:
         run: |
           mkdir -p gh-pages
           cp -r public/* gh-pages/
-          cp CNAME gh-pages/
+          # CNAME is already in public/, no need to copy from root
           touch gh-pages/.nojekyll
       
       - name: Upload artifact
