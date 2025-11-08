@@ -34,8 +34,8 @@
         <main>
             <section class="hero">
                 <div class="hero-content">
-                    <h2 class="hero-title">Demo Branch - RODiT Authentication Testing</h2>
-                    <p class="hero-subtitle">A stripped-down demo version of the TimeHereNow API client for testing RODiT authentication. All time values are sourced from NEAR blockchain at 5Hz polling (200ms intervals), NOT system or NTP time. Features 100% API test coverage (20/20 endpoints).</p>
+                    <h2 class="hero-title">TimeHereNow API</h2>
+                    <p class="hero-subtitle">TimeHereNow API client for testing RODiT authentication.</p>
                     <div class="cta-buttons">
                         <a class="btn btn-primary" href="#getting-started">Quick Start Guide</a>
                         <a class="btn btn-secondary" href="https://github.com/rodit-org/rodit-timeherenow-demo" target="_blank" rel="noopener">GitHub Repo</a>
@@ -77,19 +77,9 @@
                         <p>Full integration with IANA Time Zone Database for accurate timezone conversions worldwide with DST handling.</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">📊</div>
-                        <h3>Performance & System Metrics</h3>
-                        <p>Monitor request counts, performance data, CPU usage, memory, and uptime. Admin-only metric reset capability.</p>
-                    </div>
-                    <div class="feature-card">
                         <div class="feature-icon">🤖</div>
                         <h3>Model Context Protocol (MCP)</h3>
                         <p>AI integration support with MCP for resource discovery and API schema access for AI agents.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">✅</div>
-                        <h3>100% API Test Coverage</h3>
-                        <p>Complete test suite covering all 20 endpoints with comprehensive validation and traceability.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">📍</div>
@@ -101,7 +91,7 @@
 
             <section id="endpoints" class="about">
                 <div class="about-content">
-                    <h2 class="section-title">API Endpoints (20 Total - 100% Coverage)</h2>
+                    <h2 class="section-title">API Endpoints )</h2>
                     <div class="features-grid">
                         <div class="feature-card">
                             <h3>🔐 Authentication (2)</h3>
@@ -150,33 +140,6 @@
                             <code>GET /mcp/schema</code> — API schema for AI agents</p>
                         </div>
                     </div>
-                </div>
-            </section>
-
-            <section id="authentication" class="features">
-                <h2 class="section-title">Authentication with RODiT SDK</h2>
-                <div class="code-example">
-                    <h3>Install the SDK</h3>
-                    <pre><code>npm install @rodit/rodit-auth-be</code></pre>
-                    <p class="note">📦 <strong>NPM Package:</strong> <a href="https://www.npmjs.com/package/@rodit/rodit-auth-be" target="_blank" rel="noopener">@rodit/rodit-auth-be</a></p>
-                    <p class="note">💻 <strong>Demo Repository:</strong> <a href="https://github.com/rodit-org/rodit-timeherenow-demo" target="_blank" rel="noopener">GitHub Repository</a></p>
-                    
-                    <h3>Initialize the SDK</h3>
-                    <pre><code>const { RoditClient } = require('@rodit/rodit-auth-be');
-
-// Initialize the SDK client
-const roditClient = await RoditClient.create('client');
-
-// Share across modules via app.locals
-app.locals.roditClient = roditClient;
-
-// Authenticate with the server
-const loginResult = await roditClient.login_server();
-
-if (loginResult.jwt_token) {
-  console.log('✓ Authentication successful');
-}</code></pre>
-                    <p class="note"><strong>⚠️ Important:</strong> Direct curl requests will not work. You must use the <code>@rodit/rodit-auth-be</code> SDK to maintain transparent continuous mutual authentication.</p>
                 </div>
             </section>
 
@@ -243,8 +206,7 @@ if (loginResult.jwt_token) {
                     <a href="README.md">Full Documentation</a> • 
                     <a href="https://github.com/rodit-org/rodit-timeherenow-demo" target="_blank" rel="noopener">GitHub Demo</a> • 
                     <a href="https://purchase.timeherenow.com" target="_blank" rel="noopener">Purchase RODiT</a> • 
-                    <a href="https://www.npmjs.com/package/@rodit/rodit-auth-be" target="_blank" rel="noopener">NPM Package</a> • 
-                    <a href="https://github.com/cableguard/timeherenow" target="_blank" rel="noopener">Source Code</a>
+                    <a href="https://www.npmjs.com/package/@rodit/rodit-auth-be" target="_blank" rel="noopener">NPM Package</a>
                 </p>
             </section>
         </main>
