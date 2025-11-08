@@ -763,7 +763,7 @@ Ensure your credentials file exists and is valid JSON at the path specified in `
 
 ## Support
 
-For issues or questions, contact Discernible Inc at support@discernible.com
+For issues or questions, contact Discernible Inc at support@discernible.io
 
 ---
 

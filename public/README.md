@@ -23,7 +23,7 @@ All protected endpoints require a JWT token obtained via RODiT mutual authentica
 **Important**: Direct curl requests will not work. You must use the `@rodit/rodit-auth-be` SDK to maintain transparent continuous mutual authentication.
 
 **Resources**:
-- 📦 **NPM Package**: [https://www.npmjs.com/package/@rodit/rodit-auth-be](https://www.npmjs.com/package/@rodit/rodit-auth-be)
+- 📦 **RODiT-AUTH-BE NPM Package**: [https://www.npmjs.com/package/@rodit/rodit-auth-be](https://www.npmjs.com/package/@rodit/rodit-auth-be)
 - 💻 **Sample Client**: [https://github.com/rodit-org/timeherenow-test](https://github.com/rodit-org/timeherenow-test)
 
 ```bash
@@ -269,7 +269,7 @@ RODiT (Rich Online Digital Tokens) tokens are NFTs on the NEAR blockchain that r
 **Learn more**: [Unleashing the Power of Public Key Cryptography with Non-Fungible Tokens](https://vaceituno.medium.com/unleashing-the-power-of-public-key-cryptography-with-non-fungible-tokens-513286d47524)
 
 **Developer Resources**:
-- 📦 **NPM Package**: [https://www.npmjs.com/package/@rodit/rodit-auth-be](https://www.npmjs.com/package/@rodit/rodit-auth-be)
+- 📦 **RODiT-AUTH-BE NPM Package**: [https://www.npmjs.com/package/@rodit/rodit-auth-be](https://www.npmjs.com/package/@rodit/rodit-auth-be)
 - 💻 **Sample Client API**: [https://github.com/rodit-org/timeherenow-test](https://github.com/rodit-org/timeherenow-test)
 - 🛒 **Purchase Portal**: [https://purchase.timeherenow.com/#](https://purchase.timeherenow.com/#)
 
