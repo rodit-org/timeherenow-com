@@ -468,7 +468,7 @@ The TimeHereNow API provides comprehensive time, timezone, authentication, and w
 - **Tests:** `testTimerScheduleBasic`, `testTimerWebhookDelivery`, `testTimerPayloadEcho`, `testTimerBlockchainTimestamps`, `testTimerInvalidDelayTooSmall`, `testTimerInvalidDelayTooLarge`
 - **Features:**
   - ULID timer ID generation
-  - Blockchain timestamps (scheduled_at, execute_at, fired_at)
+  - Blockchain timestamps 
   - Automatic persistence (hourly saves)
   - Late timers skipped on restore (never sent late)
   - Payload preservation through delivery

@@ -69,7 +69,7 @@
                     <div class="feature-card">
                         <div class="feature-icon">⏰</div>
                         <h3>Blockchain-Timestamped Timers</h3>
-                        <p>Schedule webhook timers with blockchain timestamps (scheduled_at, execute_at, fired_at). Delay range: 1 second to 48 hours.</p>
+                        <p>Schedule webhook timers with blockchain timestamps . Delay range: 1 second to 48 hours.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">🌍</div>
@@ -91,50 +91,50 @@
 
             <section id="endpoints" class="about">
                 <div class="about-content">
-                    <h2 class="section-title">API Endpoints )</h2>
+                    <h2 class="section-title">API Endpoints</h2>
                     <div class="features-grid">
                         <div class="feature-card">
-                            <h3>🔐 Authentication (2)</h3>
+                            <h3>🔐 Authentication </h3>
                             <p><code>POST /api/login</code> — Authenticate with RODiT token<br>
                             <code>POST /api/logout</code> — Terminate session</p>
                         </div>
                         <div class="feature-card">
-                            <h3>👥 Session Management (3)</h3>
+                            <h3>👥 Session Management </h3>
                             <p><code>GET /api/sessions/list_all</code> — List all sessions<br>
                             <code>POST /api/sessions/revoke</code> — Revoke session<br>
                             <code>POST /api/sessions/cleanup</code> — Clean expired sessions</p>
                         </div>
                         <div class="feature-card">
-                            <h3>🌍 Timezone Operations (4)</h3>
+                            <h3>🌍 Timezone Operations </h3>
                             <p><code>POST /api/timezone</code> — List all IANA timezones<br>
                             <code>POST /api/timezone/area</code> — Filter by continent/region<br>
                             <code>POST /api/timezone/time</code> — Get blockchain time by timezone<br>
                             <code>POST /api/timezones/by-country</code> — Get timezones by country</p>
                         </div>
                         <div class="feature-card">
-                            <h3>🕐 Time Retrieval (2)</h3>
+                            <h3>🕐 Time Retrieval </h3>
                             <p><code>GET /health</code> — Health check & blockchain status<br>
                             <code>POST /api/ip</code> — Get time by IP geolocation</p>
                         </div>
                         <div class="feature-card">
-                            <h3>🔏 Blockchain Features (1)</h3>
+                            <h3>🔏 Blockchain Features </h3>
                             <p><code>POST /api/sign/hash</code> — Sign hash with blockchain timestamp<br>
                             Creates tamper-proof timestamped signatures</p>
                         </div>
                         <div class="feature-card">
-                            <h3>⏲️ Timer/Webhook (1)</h3>
+                            <h3>⏲️ Timer/Webhook </h3>
                             <p><code>POST /api/timers/schedule</code> — Schedule blockchain-timed webhook<br>
                             Delay: 1 sec to 48 hours<br>
                             ULID timer IDs, payload preservation</p>
                         </div>
                         <div class="feature-card">
-                            <h3>📊 Metrics (3)</h3>
+                            <h3>📊 Metrics </h3>
                             <p><code>GET /api/metrics</code> — Performance metrics<br>
                             <code>GET /api/metrics/system</code> — System metrics<br>
                             <code>POST /api/metrics/reset</code> — Reset counters (Admin)</p>
                         </div>
                         <div class="feature-card">
-                            <h3>🤖 Model Context Protocol (3)</h3>
+                            <h3>🤖 Model Context Protocol </h3>
                             <p><code>GET /mcp/resources</code> — MCP resource discovery<br>
                             <code>GET /mcp/resource/{uri}</code> — Get resource content<br>
                             <code>GET /mcp/schema</code> — API schema for AI agents</p>
