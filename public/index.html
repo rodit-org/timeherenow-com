@@ -25,6 +25,7 @@
                     <span style="font-size: 0.75rem; color: #666; margin-left: 0.5rem;">v2025.11.08 | API v20251023</span>
                 </div>
                 <ul class="nav-links">
+                    <li><a href="https://www.discernible.io" target="_blank" rel="noopener" style="color: #FF6B35; font-weight: bold;">About RODiT</a></li>
                     <li><a href="#features">Features</a></li>
                     <li><a href="#endpoints">API Endpoints</a></li>
                     <li><a href="#getting-started">Get Started</a></li>
@@ -37,7 +38,7 @@
             <section class="hero">
                 <div class="hero-content">
                     <h2 class="hero-title">TimeHereNow API</h2>
-                    <p class="hero-subtitle">TimeHereNow API client for testing RODiT authentication.</p>
+                    <p class="hero-subtitle">Blockchain-powered time services with RODiT continuous mutual authentication — eliminating token theft and session hijacking.</p>
                     <div class="cta-buttons">
                         <a class="btn btn-primary" href="#getting-started">Quick Start Guide</a>
                         <a class="btn btn-secondary" href="https://github.com/rodit-org/rodit-timeherenow-demo" target="_blank" rel="noopener">GitHub Repo</a>
@@ -46,6 +47,87 @@
                 <div class="hero-image">
                     <div class="placeholder-graphic">
                         <img src="logo.png" alt="TimeHereNow Logo" style="max-width: 100%; height: auto;">
+                    </div>
+                </div>
+            </section>
+
+            <section class="about" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 3rem 0;">
+                <div class="about-content">
+                    <h2 class="section-title" style="color: white;">What is RODiT?</h2>
+                    <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto 2rem; line-height: 1.8;">
+                        <strong>RODiT (Realtime Omnidirectional Digital Identity Token)</strong> is a revolutionary authentication technology that provides <strong>continuous mutual authentication</strong> between client and server. Unlike traditional JWT tokens that can be stolen and replayed, RODiT tokens are blockchain-anchored and continuously validated.
+                    </p>
+                    <div class="features-grid" style="margin-top: 2rem;">
+                        <div class="feature-card" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
+                            <div class="feature-icon" style="font-size: 3rem;">🛡️</div>
+                            <h3 style="color: white;">Continuous Validation</h3>
+                            <p style="color: rgba(255,255,255,0.9);">Every API call is mutually authenticated in real-time. Both client and server continuously prove their identity, preventing token theft and replay attacks.</p>
+                        </div>
+                        <div class="feature-card" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
+                            <div class="feature-icon" style="font-size: 3rem;">⛓️</div>
+                            <h3 style="color: white;">Blockchain-Anchored</h3>
+                            <p style="color: rgba(255,255,255,0.9);">RODiT tokens are cryptographically linked to NEAR blockchain, providing immutable proof of authentication and eliminating centralized trust points.</p>
+                        </div>
+                        <div class="feature-card" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
+                            <div class="feature-icon" style="font-size: 3rem;">🔄</div>
+                            <h3 style="color: white;">Integrated Subscription</h3>
+                            <p style="color: rgba(255,255,255,0.9);">Authentication and subscription management are unified. Access control is built into the token itself, eliminating separate billing systems.</p>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <a class="btn" href="https://www.discernible.io" target="_blank" rel="noopener" style="background: white; color: #667eea; font-weight: bold; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; display: inline-block; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">Learn More About RODiT Technology →</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about" style="background-color: #f8f9fa; padding: 3rem 0;">
+                <div class="about-content">
+                    <h2 class="section-title">Why RODiT vs Traditional Authentication?</h2>
+                    <div style="max-width: 900px; margin: 0 auto;">
+                        <table style="width: 100%; border-collapse: collapse; margin: 2rem 0; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden;">
+                            <thead>
+                                <tr style="background: #667eea; color: white;">
+                                    <th style="padding: 1rem; text-align: left; border-bottom: 2px solid #ddd;">Feature</th>
+                                    <th style="padding: 1rem; text-align: center; border-bottom: 2px solid #ddd;">Traditional JWT/OAuth</th>
+                                    <th style="padding: 1rem; text-align: center; border-bottom: 2px solid #ddd; background: #764ba2;">RODiT</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; font-weight: bold;">Token Theft Protection</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; text-align: center;">❌ Vulnerable</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; text-align: center; background: #f0fdf4;">✅ Protected</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; font-weight: bold;">Replay Attack Prevention</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; text-align: center;">❌ Limited</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; text-align: center; background: #f0fdf4;">✅ Continuous Validation</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; font-weight: bold;">Mutual Authentication</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; text-align: center;">❌ One-way</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; text-align: center; background: #f0fdf4;">✅ Bidirectional</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; font-weight: bold;">Subscription Integration</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; text-align: center;">❌ Separate System</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; text-align: center; background: #f0fdf4;">✅ Built-in</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; font-weight: bold;">Blockchain Anchoring</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; text-align: center;">❌ No</td>
+                                    <td style="padding: 1rem; border-bottom: 1px solid #eee; text-align: center; background: #f0fdf4;">✅ NEAR Protocol</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 1rem; font-weight: bold;">Session Hijacking Risk</td>
+                                    <td style="padding: 1rem; text-align: center;">❌ High</td>
+                                    <td style="padding: 1rem; text-align: center; background: #f0fdf4;">✅ Eliminated</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p style="text-align: center; font-size: 1.1rem; margin-top: 2rem; color: #666;">
+                            <strong>Real-world impact:</strong> RODiT makes stolen credentials useless. Even if an attacker intercepts a token, they cannot use it without continuous proof of identity.
+                        </p>
                     </div>
                 </div>
             </section>
@@ -136,6 +218,127 @@
                             <code>GET /mcp/resource/{uri}</code> — Get resource content<br>
                             <code>GET /mcp/schema</code> — API schema for AI agents</p>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about" style="background: white; padding: 3rem 0;">
+                <div class="about-content">
+                    <h2 class="section-title">How RODiT Authentication Works</h2>
+                    <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem; color: #666;">
+                        Understanding the continuous mutual authentication flow
+                    </p>
+                    <div style="max-width: 1000px; margin: 0 auto;">
+                        <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;">
+                            <!-- Client -->
+                            <rect x="50" y="50" width="150" height="80" fill="#667eea" rx="8"/>
+                            <text x="125" y="95" text-anchor="middle" fill="white" font-size="18" font-weight="bold">Your Application</text>
+                            <text x="125" y="115" text-anchor="middle" fill="white" font-size="14">(Client)</text>
+                            
+                            <!-- NEAR Blockchain -->
+                            <rect x="325" y="20" width="150" height="80" fill="#000000" rx="8"/>
+                            <text x="400" y="55" text-anchor="middle" fill="white" font-size="18" font-weight="bold">NEAR</text>
+                            <text x="400" y="75" text-anchor="middle" fill="white" font-size="14">Blockchain</text>
+                            <text x="400" y="90" text-anchor="middle" fill="#00D1B2" font-size="12">⛓️ Immutable Anchor</text>
+                            
+                            <!-- TimeHereNow API -->
+                            <rect x="600" y="50" width="150" height="80" fill="#764ba2" rx="8"/>
+                            <text x="675" y="85" text-anchor="middle" fill="white" font-size="18" font-weight="bold">TimeHereNow</text>
+                            <text x="675" y="105" text-anchor="middle" fill="white" font-size="14">API Server</text>
+                            
+                            <!-- RODiT Token -->
+                            <rect x="325" y="180" width="150" height="100" fill="#FF6B35" rx="8"/>
+                            <text x="400" y="210" text-anchor="middle" fill="white" font-size="18" font-weight="bold">RODiT Token</text>
+                            <text x="400" y="230" text-anchor="middle" fill="white" font-size="12">🔐 Continuous Auth</text>
+                            <text x="400" y="250" text-anchor="middle" fill="white" font-size="12">✅ Subscription Status</text>
+                            <text x="400" y="270" text-anchor="middle" fill="white" font-size="12">⏰ Blockchain Time</text>
+                            
+                            <!-- Arrows -->
+                            <!-- Client to RODiT -->
+                            <line x1="200" y1="90" x2="325" y2="220" stroke="#667eea" stroke-width="3" marker-end="url(#arrowblue)"/>
+                            <text x="240" y="140" fill="#667eea" font-size="12" font-weight="bold">1. Request</text>
+                            
+                            <!-- RODiT to NEAR -->
+                            <line x1="400" y1="180" x2="400" y2="100" stroke="#000000" stroke-width="3" marker-end="url(#arrowblack)"/>
+                            <text x="410" y="145" fill="#000000" font-size="12" font-weight="bold">2. Verify</text>
+                            
+                            <!-- RODiT to Server -->
+                            <line x1="475" y1="220" x2="600" y2="90" stroke="#764ba2" stroke-width="3" marker-end="url(#arrowpurple)"/>
+                            <text x="520" y="140" fill="#764ba2" font-size="12" font-weight="bold">3. Validate</text>
+                            
+                            <!-- Server back to Client -->
+                            <line x1="600" y1="110" x2="200" y2="110" stroke="#00D1B2" stroke-width="3" marker-end="url(#arrowgreen)" stroke-dasharray="5,5"/>
+                            <text x="380" y="100" fill="#00D1B2" font-size="12" font-weight="bold">4. Secure Response</text>
+                            
+                            <!-- Arrow markers -->
+                            <defs>
+                                <marker id="arrowblue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                                    <path d="M0,0 L0,6 L9,3 z" fill="#667eea" />
+                                </marker>
+                                <marker id="arrowblack" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                                    <path d="M0,0 L0,6 L9,3 z" fill="#000000" />
+                                </marker>
+                                <marker id="arrowpurple" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                                    <path d="M0,0 L0,6 L9,3 z" fill="#764ba2" />
+                                </marker>
+                                <marker id="arrowgreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                                    <path d="M0,0 L0,6 L9,3 z" fill="#00D1B2" />
+                                </marker>
+                            </defs>
+                            
+                            <!-- Bottom text -->
+                            <text x="400" y="340" text-anchor="middle" fill="#333" font-size="14" font-weight="bold">Every API call is mutually authenticated in real-time</text>
+                            <text x="400" y="365" text-anchor="middle" fill="#666" font-size="12">Token theft is useless — continuous proof of identity required</text>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about" style="background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%); color: white; padding: 3rem 0;">
+                <div class="about-content">
+                    <h2 class="section-title" style="color: white;">Get Your RODiT Subscription</h2>
+                    <p style="font-size: 1.1rem; max-width: 700px; margin: 0 auto 2rem; text-align: center; line-height: 1.8;">
+                        TimeHereNow RODiT tokens combine authentication, subscription, and configuration into a single blockchain-anchored credential.
+                    </p>
+                    <div class="features-grid" style="margin-top: 2rem;">
+                        <div class="feature-card" style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3);">
+                            <div class="feature-icon" style="font-size: 2.5rem;">📦</div>
+                            <h3 style="color: white;">What's Included</h3>
+                            <ul style="text-align: left; color: rgba(255,255,255,0.95); line-height: 1.8;">
+                                <li>✅ RODiT authentication token</li>
+                                <li>✅ Blockchain time API access</li>
+                                <li>✅ Webhook timer services</li>
+                                <li>✅ IANA timezone database</li>
+                                <li>✅ Continuous mutual auth</li>
+                                <li>✅ NPM package integration</li>
+                            </ul>
+                        </div>
+                        <div class="feature-card" style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3);">
+                            <div class="feature-icon" style="font-size: 2.5rem;">🔧</div>
+                            <h3 style="color: white;">Requirements</h3>
+                            <ul style="text-align: left; color: rgba(255,255,255,0.95); line-height: 1.8;">
+                                <li>🔹 NEAR Protocol wallet</li>
+                                <li>🔹 Implicit account (generated)</li>
+                                <li>🔹 HTTPS webhook URL</li>
+                                <li>🔹 Node.js 20.x or higher</li>
+                                <li>🔹 SSL certificates (self-signed OK)</li>
+                            </ul>
+                        </div>
+                        <div class="feature-card" style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3);">
+                            <div class="feature-icon" style="font-size: 2.5rem;">⚡</div>
+                            <h3 style="color: white;">Integration</h3>
+                            <ul style="text-align: left; color: rgba(255,255,255,0.95); line-height: 1.8;">
+                                <li>🚀 Install via NPM</li>
+                                <li>🚀 Configure credentials</li>
+                                <li>🚀 Purchase RODiT token</li>
+                                <li>🚀 Start making API calls</li>
+                                <li>🚀 Full demo code included</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 2.5rem;">
+                        <a class="btn" href="https://purchase.timeherenow.com" target="_blank" rel="noopener" style="background: white; color: #FF6B35; font-weight: bold; padding: 1.2rem 2.5rem; border-radius: 8px; text-decoration: none; display: inline-block; box-shadow: 0 4px 12px rgba(0,0,0,0.2); font-size: 1.1rem;">Purchase RODiT Token →</a>
+                        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9;">Secure blockchain-based subscription • No recurring billing hassles</p>
                     </div>
                 </div>
             </section>
