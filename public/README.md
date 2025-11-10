@@ -852,7 +852,7 @@ Retrieve a specific MCP resource by its URI.
     "openapi": "3.0.1",
     "info": {
       "title": "Time Here Now API",
-      "version": "20251023"
+      "version": "20251108"
     },
     "paths": { ... }
   },
@@ -1125,7 +1125,7 @@ Raw OpenAPI 3.0.1 specification in JSON format for programmatic access and tooli
 ```json
 {
   "openapi": "3.0.1",
-  "info": { "title": "Time Here Now API", "version": "20251023" },
+  "info": { "title": "Time Here Now API", "version": "20251108" },
   "paths": { ... }
 }
 ```
