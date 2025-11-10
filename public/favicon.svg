@@ -1,0 +1,23 @@
+
+    <svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:1" />
+        </linearGradient>
+      </defs>
+      <!-- Background circle -->
+      <circle cx="256" cy="256" r="256" fill="url(#grad)"/>
+      <!-- Stylized "T" shape -->
+      <path d="M 128 128 
+               L 384 128 
+               L 384 179.2 
+               L 281.6 179.2
+               L 281.6 384
+               L 230.4 384
+               L 230.4 179.2
+               L 128 179.2
+               Z" 
+            fill="white"/>
+    </svg>
+  

@@ -4,9 +4,13 @@
   "description": "Static homepage for timeherenow.com",
   "scripts": {
     "start": "npx http-server ./public -p 8080",
-    "build": "echo 'No build step required for static site'"
+    "build": "echo 'No build step required for static site'",
+    "generate-favicon": "node generate-favicon.js"
   },
   "keywords": ["static", "homepage"],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "sharp": "^0.33.0"
+  }
 }
